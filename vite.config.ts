@@ -1,8 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import typescript from "@rollup/plugin-typescript";
 import { resolve } from "path";
-import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,7 +13,9 @@ export default defineConfig({
 
     rollupOptions: {
       external: ["vue"],
+
       output: {
+        // sourcemap: true,
         globals: {
           vue: "Vue",
         },
@@ -23,15 +23,5 @@ export default defineConfig({
     },
   },
 
-  plugins: [
-    {
-      ...typescript({ tsconfig: "./tsconfig.json" }),
-      apply: "build",
-      // declaration: true,
-      // declarationDir: 'types/',
-      // rootDir: '/'
-    },
-    dts(),
-    vue(),
-  ],
+  plugins: [vue()],
 });
