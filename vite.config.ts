@@ -10,7 +10,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "vue-awesome-paginate",
-      fileName: (format) => `vue-awesome-paginate${format}.js`,
+      fileName: (format) => `vue-awesome-paginate.${format}.js`,
     },
 
     rollupOptions: {

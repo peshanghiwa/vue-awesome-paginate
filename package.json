@@ -6,7 +6,8 @@
   "module": "./dist/vue-awesome-paginate.es.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-awesome-paginate.es.js"
+      "import": "./dist/vue-awesome-paginate.es.js",
+      "require": "./dist/vue-awesome-paginate.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
