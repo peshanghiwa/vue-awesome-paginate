@@ -18,9 +18,7 @@ const props = defineProps({
     validator: (value: number) => {
       if (value <= 0) {
         const message = "itemsPerPage attribute must be greater than 0.";
-
         console.error(message);
-        throw new TypeError(message);
       }
       return true;
     },
@@ -32,7 +30,6 @@ const props = defineProps({
       const message = "currentPage attribute must be greater than 0.";
       if (value <= 0) {
         console.error(message);
-        throw new TypeError(message);
       }
       return true;
     },
@@ -44,7 +41,6 @@ const props = defineProps({
       const message = "maxPagesShown attribute must be greater than 0.";
       if (value <= 0) {
         console.error(message);
-        throw new TypeError(message);
       }
       return true;
     },
@@ -56,7 +52,6 @@ const props = defineProps({
       const message = 'dir attribute must be either "ltr" or "rtl".';
       if (value !== "ltr" && value !== "rtl") {
         console.error(message);
-        throw new TypeError(message);
       }
       return true;
     },
@@ -71,7 +66,6 @@ const props = defineProps({
         validTypess.join(", ");
       if (validTypess.indexOf(value) === -1) {
         console.error(message);
-        throw new TypeError(message);
       }
       return true;
     },
@@ -94,7 +88,6 @@ const props = defineProps({
         validLocales.join(", ");
       if (validLocales.indexOf(value) === -1) {
         console.error(message);
-        throw new TypeError(message);
       }
       return true;
     },
@@ -142,7 +135,6 @@ const props = defineProps({
       const message = "currentPage attribute must be greater than 0.";
       if (value <= 0) {
         console.error(message);
-        throw new TypeError(message);
       }
       return true;
     },

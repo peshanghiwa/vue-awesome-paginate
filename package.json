@@ -13,9 +13,10 @@
   "files": [
     "dist"
   ],
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -28,6 +29,7 @@
     "tslib": "^2.4.0",
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
-    "vue-tsc": "^0.34.7"
+    "vite-plugin-dts": "^1.2.0",
+    "vue-tsc": "^0.34.17"
   }
 }
