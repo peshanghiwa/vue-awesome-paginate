@@ -58,6 +58,7 @@ const props = defineProps({
       return true;
     },
   },
+  // !-- Not published yet
   type: {
     type: String,
     default: "button",
@@ -68,6 +69,7 @@ const props = defineProps({
         validTypess.join(", ");
       if (validTypess.indexOf(value) === -1) {
         console.error(message);
+        throw new TypeError(message);
       }
       return true;
     },
@@ -76,6 +78,7 @@ const props = defineProps({
     type: Function,
     default: () => {},
   },
+  // !-- Not published yet
   href: {
     type: String,
     default: "#",
@@ -90,6 +93,7 @@ const props = defineProps({
         validLocales.join(", ");
       if (validLocales.indexOf(value) === -1) {
         console.error(message);
+        throw new TypeError(message);
       }
       return true;
     },
@@ -110,21 +114,21 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  startingBreakPointContent: {
-    type: String,
-    default: "...",
+  showBreakpointButtons: {
+    type: Boolean,
+    default: true,
   },
-  endingBreakPointButtonContent: {
-    type: String,
-    default: "...",
-  },
-  showBreakPointButtons: {
+  disableBreakpointButtons: {
     type: Boolean,
     default: false,
   },
-  disableBreakPointButtons: {
-    type: Boolean,
-    default: false,
+  startingBreakpointContent: {
+    type: String,
+    default: "...",
+  },
+  endingBreakpointButtonContent: {
+    type: String,
+    default: "...",
   },
   showJumpButtons: {
     type: Boolean,
@@ -142,6 +146,14 @@ const props = defineProps({
       }
       return true;
     },
+  },
+  backwardJumpButtonContent: {
+    type: String,
+    default: "<<",
+  },
+  forwardJumpButtonContent: {
+    type: String,
+    default: ">>",
   },
 
   // Class props
@@ -163,6 +175,10 @@ const props = defineProps({
     type: String,
     default: "last-button",
   },
+  numberButtonsClass: {
+    type: String,
+    default: "number-buttons",
+  },
   startingBreakpointButtonClass: {
     type: String,
     default: "starting-breakpoint-button",
@@ -170,18 +186,6 @@ const props = defineProps({
   endingBreakPointButtonClass: {
     type: String,
     default: "ending-breakpoint-button",
-  },
-  numberButtonsClass: {
-    type: String,
-    default: "number-buttons",
-  },
-  backwardJumpButtonContent: {
-    type: String,
-    default: "<<",
-  },
-  forwardJumpButtonContent: {
-    type: String,
-    default: ">>",
   },
 
   // use this selector above all the other selectors because of css specificity
@@ -408,7 +412,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
     </li>
 
     <!-- First Button before Starting Breakpoint Button -->
-    <li v-if="showBreakPointButtons && firstButtonIfCondition">
+    <li v-if="showBreakpointButtons && firstButtonIfCondition">
       <button
         @click="onClickHandler(isRtl ? totalPages : 1)"
         :class="[firstButtonClass, paginateButtonsClass]"
@@ -418,7 +422,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
     </li>
 
     <!-- Starting Breakpoint Button -->
-    <li v-if="showBreakPointButtons && startingBreakPointButtonIfCondition">
+    <li v-if="showBreakpointButtons && startingBreakPointButtonIfCondition">
       <button
         @click="
           onClickHandler(
@@ -429,15 +433,15 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
               : currentPageRef - Math.ceil(maxPagesShown / 2)
           )
         "
-        :disabled="disableBreakPointButtons"
+        :disabled="disableBreakpointButtons"
         :class="[
           startingBreakpointButtonClass,
           paginateButtonsClass,
-          disableBreakPointButtons ? disabledBreakPointButtonClass : '',
+          disableBreakpointButtons ? disabledBreakPointButtonClass : '',
         ]"
       >
         <slot name="starting-breakpoint-button">
-          {{ startingBreakPointContent }}
+          {{ startingBreakpointContent }}
         </slot>
       </button>
     </li>
@@ -457,7 +461,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
     </li>
 
     <!-- Ending Breakpoint Button -->
-    <li v-if="showBreakPointButtons && endingBreakPointButtonIfCondition">
+    <li v-if="showBreakpointButtons && endingBreakPointButtonIfCondition">
       <button
         @click="
           onClickHandler(
@@ -468,21 +472,21 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
               : currentPageRef + Math.ceil(maxPagesShown / 2)
           )
         "
-        :disabled="disableBreakPointButtons"
+        :disabled="disableBreakpointButtons"
         :class="[
           endingBreakPointButtonClass,
           paginateButtonsClass,
-          disableBreakPointButtons ? disabledBreakPointButtonClass : '',
+          disableBreakpointButtons ? disabledBreakPointButtonClass : '',
         ]"
       >
         <slot name="ending-breakpoint-button">
-          {{ endingBreakPointButtonContent }}
+          {{ endingBreakpointButtonContent }}
         </slot>
       </button>
     </li>
 
     <!-- Last Button after Ending Breakingpoint Button-->
-    <li v-if="showBreakPointButtons && lastButtonIfCondition">
+    <li v-if="showBreakpointButtons && lastButtonIfCondition">
       <button
         @click="onClickHandler(isRtl ? 1 : totalPages)"
         :class="[lastButtonClass, paginateButtonsClass]"
