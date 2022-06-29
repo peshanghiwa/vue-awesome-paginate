@@ -1,16 +1,433 @@
-# Vue 3 + TypeScript + Vite
+# Awesome Vue Paginate
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+#### _The Awesome Vue.js Pagination Library_
 
-## Recommended IDE Setup
+---
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+[![peshanghiwa - vue-awesome-paginate](https://img.shields.io/static/v1?label=peshanghiwa&message=vue-awesome-paginate&color=yellow&logo=github)](https://github.com/peshanghiwa/vue-awesome-paginate "Go to GitHub repo") [![GitHub release](https://img.shields.io/github/release/peshanghiwa/vue-awesome-paginate?include_prereleases=&sort=semver&color=red)](https://github.com/peshanghiwa/vue-awesome-paginate/releases/)
+[![npm version](https://img.shields.io/npm/v/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![npm downloads](https://img.shields.io/npm/dm/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/peshanghiwa/vue-awesome-paginate/blob/main/LICENSE)
 
-## Type Support For `.vue` Imports in TS
+Vue Awesome Paginate is a modern and powerfull vue js pagination library with a large set of various pagination components that are flexible, very lightweight, customizable with pure CSS and very easy to use.
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+## Key Features
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+- All pagination functionalities are built in to the package with 0 dependants.
+- Various different types of pagination components that you can enable or disable according to your needs, and what suits your website best.
+- Complete customization support for every component using pure CSS.
+- Complete RTL support.
+- Different localizations support.
+- Package is built with typescript and vite with complete support for vue.js (3x) and nuxt.js (3.x)
+  &nbsp;
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+# Table of Contents
+
+---
+
+- [**_Demo_**](#demo)
+- [**_Requirements_**](#requirements)
+- [**_Installation_**](#installation)
+  - [**_Vue.js_**](#Vue.js)
+  - [**_Nuxt.js_**](#Nuxt.js)
+- [**_Usage_**](#usage)
+- [**_API_**](#constructor-options)
+  - [**_Component Attributes_**](#Vue.js)
+  - [**_Class Name Attributes_**](#Nuxt.js)
+  - [**_Slot Names_**](#Nuxt.js)
+- [**_Author_**](#authors-&&-Contributors)
+- [**_License_**](#license)
+
+&nbsp;
+
+## Demo
+
+This is a simple [**_Demo_**](http://hilongjw.github.io/vue-lazyload/) environment for the package where you can use and test the package.
+
+## Requirements
+
+This package supports both vue.js and nuxt.js, you are required to use one of these versions:
+
+- Vue.js 3.x
+- Nuxt.js 3.x
+
+&nbsp;
+
+## Installation
+
+To use the package you must first add the it to your dependencies in your project.
+
+```bash
+$ npm i vue-awesome-paginate
+```
+
+Then you have to register the package in your project as well as import a necessary css file that comes with the package.
+
+#### Vue.js setup
+
+main.js
+
+```javascript
+import { createApp } from "vue";
+import App from "./App.vue";
+
+// import the package
+import VueAwesomePaginate from "vue-awesome-paginate";
+
+// import the necessary css file
+import "vue-awesome-paginate/dist/style.css";
+
+// Register the package
+createApp(App).use(VueAwesomePaginate).mount("#app");
+```
+
+#### Nuxt.js setup
+
+plugins/vue-awesome-paginate.js
+
+```javascript
+// import the package
+import VueAwesomePaginate from "vue-awesome-paginate";
+
+// import the necessary css file
+import "vue-awesome-paginate/dist/style.css";
+
+// Register the package
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.use(VueAwesomePaginate);
+});
+```
+
+&nbsp;
+
+## Usage
+
+A complete vue-awesome-paginate component example with some custom CSS customization would be like this:
+
+```html
+<template>
+  <vue-awesome-paginate
+    :total-items="50"
+    :items-per-page="5"
+    :max-pages-shown="5"
+    :current-page="1"
+    :on-click="onClickHandler"
+  />
+</template>
+
+<script setup lang="ts">
+  const onClickHandler = (page: number) => {
+    console.log(page);
+  };
+</script>
+
+<style>
+  .pagination-container {
+    display: flex;
+    column-gap: 10px;
+  }
+  .paginate-buttons {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: rgb(242, 242, 242);
+    border: 1px solid rgb(217, 217, 217);
+    color: black;
+  }
+  .paginate-buttons:hover {
+    background-color: #d8d8d8;
+  }
+  .active-page {
+    background-color: #3498db;
+    border: 1px solid #3498db;
+    color: white;
+  }
+  .active-page:hover {
+    background-color: #2988c8;
+  }
+</style>
+```
+
+##### Result of above snippet:
+
+<img src="https://d2wcj0x98hsnim.cloudfront.net/1656270660837.png" width="200" />
+
+### Required Attributes
+
+Total required attributes to build a full pagination for your website is only one single attribute, the component will handle all the other functionalities and attributes by default
+as simple as this example:
+
+```html
+<vue-awesome-paginate :total-items="200" />
+```
+
+##### Result of above snippet:
+
+<img src="https://d2wcj0x98hsnim.cloudfront.net/1656530981407.png" width="200" />
+
+### Configurations
+
+You have total control over your pagination component, you can configure every element's appearence, number and behavior.
+Example: you can set items per single page, maximum pagination buttons to show and a click event handler.
+
+```html
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  :on-click="onClickHandler"
+/>
+```
+
+##### Result of above snippet:
+
+<img src="https://d2wcj0x98hsnim.cloudfront.net/1656275300317.png" width="200" />
+
+#### Show/Hide or Enable/Disable breakpoint buttons
+
+Breakpoint buttons are clickable and shown by default, if you click on them you will get a jump of max-pages-shown / 2 in the pagination
+
+You can Disable/Enable or Hide/Show them through attributes
+
+```html
+<!-- Hide Breakpoint Buttons -->
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  :on-click="onClickHandler"
+  :show-breakpoint-buttons="false"
+/>
+
+<!--  Disable Breakpoint Buttons -->
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  :on-click="onClickHandler"
+  :disable-breakpoint-buttons="false"
+/>
+```
+
+&nbsp;
+
+#### Hide Prev/Next buttons
+
+You can hide prev/next buttons in two ways
+
+```html
+<!--  Hide the Prev/Next buttons permanently -->
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  :on-click="onClickHandler"
+  :hide-prev-next="true"
+/>
+
+<!--  Hide the Prev button only when pagination is at the beginning or hide next button only when pagination reaches the end -->
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  :on-click="onClickHandler"
+  :hide-prev-next-when-ends="true"
+/>
+```
+
+##### Result of above snippet:
+
+<img src="https://d2wcj0x98hsnim.cloudfront.net/1656447363266.png" width="200" />
+&nbsp;
+#### Change buttons content
+You can change the content inside the prev/next buttons in two ways:
+ 1- Pass a string to **prev-button-content** or **next-button-content** attributes
+```html
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  :on-click="onClickHandler"
+  prev-button-content="<<<"
+  next-button-content=">>>"
+/>
+```
+##### Result of above snippet:
+<img src="https://d2wcj0x98hsnim.cloudfront.net/1656445736178.png" width="200" />
+
+2- Inject your own HTML content into the buttons through custom slots
+
+```html
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  :on-click="onClickHandler"
+>
+  <template #prev-button>
+    <span>
+      <img src="backward-arrow-icon.png" height="25" />
+    </span>
+  </template>
+  <template #next-button>
+    <span>
+      <img src="forward-arrow-icon.png" height="25" />
+    </span>
+  </template>
+</vue-awesome-paginate>
+```
+
+##### Result of above snippet:
+
+<img src="https://d2wcj0x98hsnim.cloudfront.net/1656446826214.png" width="200" />
+This 2nd method of injecting html through custom slots in to elements is available for all the other controlling elements like breakpoint buttons and jump buttons etc...
+You can see all the slots in the slots table at API section
+&nbsp;
+#### Show Jump Buttons
+Jump Buttons are extra layers on top of Prev/Next buttons, if you enable them they will appear at each ends of the component, you can customize and configure them just like any other elements of the component and if you click on them it will have the same behavior as clicking on breakppoint buttons which is jumping by (max-pages-show/2)
+```html
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  :show-breakpoint-buttons="false"
+  :show-jump-buttons="true"
+/>
+```
+##### Result of above snippet:
+<img src="https://d2wcj0x98hsnim.cloudfront.net/1656448985932.png" width="200" />
+&nbsp;
+
+#### RTL and Locale Support
+
+There are complete supports for RTL and different localizations without using any other 3rd package libraries
+
+```html
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  dir="rtl"
+  locale="ar"
+/>
+```
+
+##### Result of above snippet:
+
+<img src="https://d2wcj0x98hsnim.cloudfront.net/1656449727306.png" width="200" />
+&nbsp;
+
+#### Custom Styles
+
+By default pagination buttons have the default html styles, you can customize every element of the component through the default class names that are set for each element, or you can set your class names for any element you want.
+
+```html
+<template>
+  <vue-awesome-paginate
+    :total-items="50"
+    :current-page="1"
+    :items-per-page="5"
+    :max-pages-shown="5"
+    paginate-buttons-class="btn"
+    active-page-class="btn-active"
+    back-button-class="back-btn"
+    next-button-class="next-btn"
+  />
+</template>
+<style>
+  .btn {
+    height: 40px;
+    width: 40px;
+    border: none;
+    margin-inline: 5px;
+    cursor: pointer;
+  }
+  .back-btn {
+    background-color: red;
+  }
+  .next-btn {
+    background-color: red;
+  }
+  .btn-active {
+    background-color: blue;
+    color: white;
+  }
+</style>
+```
+
+##### Result of above snippet:
+
+<img src="https://d2wcj0x98hsnim.cloudfront.net/1656451021125.png" width="200" />
+
+You don't necessarily need to set class names for the elements if you don't want to, you can just use their default class names that are available in the class names table in the API section.
+&nbsp;
+
+## API
+
+#### Component Attributes
+
+Note that all the attributes in the table below can be written in both camel case and kebab case styles.
+| Key | Description | Options | Default | Validations |
+| ------ | ------ | ------ | ------ | ------ |
+| totalItems | Total Number of items that you want to paginate | Number | | Required
+| itemsPerPage | Total Number of items that you explicitly want to show per one page | Number | 10 | Must be greater than 0 |
+| currentPage | Current active page | Number | 1 | Must be greater than 0 |
+| maxPagesShown | Maximum pagination buttons (Number Buttons only) to be shown | Number | 5 | Must be greater than 0 |
+| dir | Driection of the component (RTL Support) | "ltr" \| "rtl" | "ltr" | Must be one of either options |
+| onClick | A function that runs when the user changes a page by clicking any of the elements of the component (Passing the new active page to the function as a parameter) | Function | ()=>{} | |
+| locale | Localization of the component (currently only Arabic, English and Persian locales are supported, more localization options will be added! | "en" \| "ar" \| "ir" | "en" | Must be one of the available options) |
+| prevButtonContent | Content to be shown in the prev button | String \| Slot | "<" | Must be either a string or a custom slot |
+| nextButtonContent | Content to be shown in the prev button | String \| Slot | ">" | Must be either a string or a custom slot |
+| hidePrevNext | Hide the prev and next buttons permanently | Boolean | false | |
+| hidePrevNextWhenEnds | Hide the prev button when pagination is at the beginning and next button when the pagination is at the end | Boolean | false | |
+| showBreakpointButtons | Show/Hide the breakpoint buttons | Boolean | true | |
+| disableBreakpointButtons | Enable/Disable the breakpoint buttons | Boolean | false | |
+| startingBreakpointContent | Content to be shown in the starting breakpoint button | String \| Slot | "..." | Must be either a string or a custom slot |
+| endingBreakpointButtonContent | Content to be shown in the ending breakpoint button | String \| Slot | "..." | Must be either a string or a custom slot |
+| showJumpButtons | Show/Hide the jump buttons | Boolean | false | |
+| backwardJumpButtonContent | Content to be shown in the backward jump button | String \| Slot | "<<" | Must be either a string or a custom slot |
+| forwardJumpButtonContent | Content to be shown in the forward jump button | String \| Slot | ">>" | Must be either a string or a custom slot |
+&nbsp;
+
+#### Class Names Attributes
+
+All the class names have a default value.
+| Key | Description (Target) | Default |
+| ------ | ------ | ------ |
+| paginationContainerClass | Styles for this class will be applied for the container of the whole compoent | pagination-container |
+| paginateButtonsClass | A global class name, styles for this class will be applied for all of the buttons inside the component | paginate-buttons |
+| numberButtonsClass | Styles for this class will be applied for all the number buttons | number-buttons |
+| activePageClass | Styles for this class will be applied for the current active page button | active-page |
+| backButtonClass | Styles for this class will be applied for the back button | back-button |
+| nextButtonClass | Styles for this class will be applied for the next button | next-button |
+| startingBreakpointButtonClass | Styles for this class will be applied for the starting breakpoint button | starting-breakpoint-button |
+| endingBreakpointButtonClass | Styles for this class will be applied for the ending breakpoint button | ending-breakpoint-button |
+| disabledBreakPointButtonClass | Styles for this class will be applied for the disabled breakpoint buttons | disabled-breakpoint-button |
+| backwardJumpButtonClass | Styles for this class will be applied for the backward jump button | backward-jump-button |
+| forwardJumpButtonClass | Styles for this class will be applied for the forward jump button | forward-jump-button |
+
+&nbsp;
+
+#### Slot Names
+
+These slot names can be used for Vue Slots in order to inject custom html in to the target element
+| Slot Name | Target |
+| ------ | ------ |
+| prev-button | Prev Button |
+| next-button | Next Button |
+| backward-jump-button | Backward Jump Button |
+| forward-jump-button | Forward Jump Button
+| starting-breakpoint-button | Starting Breakpoint Button |
+| ending-breakpoint-button | Ending Breakpoint Button |
+
+## License
+
+[The MIT License](http://opensource.org/licenses/MIT)
