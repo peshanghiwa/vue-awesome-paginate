@@ -21,8 +21,6 @@ Vue Awesome Paginate is a modern and powerfull vue js pagination library with a 
 
 # Table of Contents
 
----
-
 - [**_Demo_**](#demo)
 - [**_Requirements_**](#requirements)
 - [**_Installation_**](#installation)
@@ -152,8 +150,10 @@ A complete vue-awesome-paginate component example with some custom CSS customiza
 <img src="https://i.ibb.co/Z87LJ3f/test.png" width="500" />
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
 
-### Required Attributes
+## Required Attributes
 
 Total required attributes to build a full pagination for your website is only one single attribute, the component will handle all the other functionalities and attributes by default
 as simple as this example:
@@ -167,8 +167,10 @@ as simple as this example:
 <img src="https://i.ibb.co/pKP0ztZ/2.png" width="500" />
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
 
-### Configurations
+## Configurations
 
 You have total control over your pagination component, you can configure every element's appearence, number and behavior.
 Example: you can set items per single page, maximum pagination buttons to show and a click event handler.
@@ -188,8 +190,10 @@ Example: you can set items per single page, maximum pagination buttons to show a
 <img src="https://i.ibb.co/fDthpxC/3.png" width="500" />
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
 
-### Show/Hide or Enable/Disable breakpoint buttons
+## Show/Hide or Enable/Disable breakpoint buttons
 
 Breakpoint buttons are clickable and shown by default, if you click on them you will get a jump of max-pages-shown / 2 in the pagination
 
@@ -218,8 +222,10 @@ You can Disable/Enable or Hide/Show them through attributes
 ```
 
 &nbsp;
+&nbsp;
+&nbsp;
 
-### Hide Prev/Next buttons
+## Hide Prev/Next buttons
 
 You can hide prev/next buttons in two ways
 
@@ -250,8 +256,10 @@ You can hide prev/next buttons in two ways
 <img src="https://i.ibb.co/8rshY8B/4.png" width="500" />
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
 
-### Change buttons content
+## Change buttons content
 
 You can change the content inside the prev/next buttons in two ways:
 1- Pass a string to **prev-button-content** or **next-button-content** attributes
@@ -305,8 +313,10 @@ You can see all the slots in the slots table at API section
 
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
 
-### Show Jump Buttons
+## Show Jump Buttons
 
 Jump Buttons are extra layers on top of Prev/Next buttons, if you enable them they will appear at each ends of the component, you can customize and configure them just like any other elements of the component and if you click on them it will have the same behavior as clicking on breakppoint buttons which is jumping by (max-pages-show/2)
 
@@ -326,8 +336,10 @@ Jump Buttons are extra layers on top of Prev/Next buttons, if you enable them th
 <img src="https://i.ibb.co/NCbmMXb/7.png" width="500" />
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
 
-### RTL and Locale Support
+## RTL and Locale Support
 
 There are complete supports for RTL and different localizations without using any other 3rd package libraries
 
@@ -347,8 +359,10 @@ There are complete supports for RTL and different localizations without using an
 <img src="https://i.ibb.co/ncjGdYw/8.png" width="500" />
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
 
-### Custom Styles
+## Custom Styles
 
 By default pagination buttons have the default html styles, you can customize every element of the component through the default class names that are set for each element, or you can set your class names for any element you want.
 
@@ -422,6 +436,8 @@ Note that all the attributes in the table below can be written in both camel cas
 | backwardJumpButtonContent | Content to be shown in the backward jump button | String \| Slot | "<<" | Must be either a string or a custom slot |
 | forwardJumpButtonContent | Content to be shown in the forward jump button | String \| Slot | ">>" | Must be either a string or a custom slot |
 &nbsp;
+&nbsp;
+&nbsp;
 
 ### Class Name Attributes
 
@@ -440,6 +456,8 @@ All the class names have a default value.
 | backwardJumpButtonClass | Styles for this class will be applied for the backward jump button | backward-jump-button |
 | forwardJumpButtonClass | Styles for this class will be applied for the forward jump button | forward-jump-button |
 
+&nbsp;
+&nbsp;
 &nbsp;
 
 ### Slot Names
