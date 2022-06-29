@@ -1,9 +1,8 @@
 <script setup lang="ts">
-// -------------------- //
-// ---> Properties <--- //
-
 import { computed, ref } from "vue";
 
+// -------------------- //
+// ---> Properties <--- //
 // -------------------- //
 const props = defineProps({
   // Configuration props
@@ -11,7 +10,6 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-
   itemsPerPage: {
     type: Number,
     default: 10,
@@ -19,6 +17,7 @@ const props = defineProps({
       if (value <= 0) {
         const message = "itemsPerPage attribute must be greater than 0.";
         console.error(message);
+        throw new TypeError(message);
       }
       return true;
     },
@@ -30,6 +29,7 @@ const props = defineProps({
       const message = "currentPage attribute must be greater than 0.";
       if (value <= 0) {
         console.error(message);
+        throw new TypeError(message);
       }
       return true;
     },
@@ -41,6 +41,7 @@ const props = defineProps({
       const message = "maxPagesShown attribute must be greater than 0.";
       if (value <= 0) {
         console.error(message);
+        throw new TypeError(message);
       }
       return true;
     },
@@ -52,6 +53,7 @@ const props = defineProps({
       const message = 'dir attribute must be either "ltr" or "rtl".';
       if (value !== "ltr" && value !== "rtl") {
         console.error(message);
+        throw new TypeError(message);
       }
       return true;
     },
@@ -128,6 +130,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  // !-- Not published yet
   linkUrl: {
     type: String,
     default: "#",
@@ -135,6 +138,7 @@ const props = defineProps({
       const message = "currentPage attribute must be greater than 0.";
       if (value <= 0) {
         console.error(message);
+        throw new TypeError(message);
       }
       return true;
     },
@@ -149,10 +153,12 @@ const props = defineProps({
     type: String,
     default: "next-button",
   },
+  // not included in the documentation yet
   firstButtonClass: {
     type: String,
     default: "first-button",
   },
+  // not included in the documentation yet
   lastButtonClass: {
     type: String,
     default: "last-button",
