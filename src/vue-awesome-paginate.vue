@@ -364,18 +364,18 @@ const lastButtonIfCondition = computed(() => {
 // }
 
 // if type attribute is link, then linkUrl attribute is required
-if (props.type === "link" && props.linkUrl === "#") {
-  console.error(`linkUrl attribute is required if type attribute is 'link'`);
-  throw new TypeError(
-    `linkUrl attribute is required if type attribute is 'link'`
-  );
-}
+// if (props.type === "link" && props.linkUrl === "#") {
+//   console.error(`linkUrl attribute is required if type attribute is 'link'`);
+//   throw new TypeError(
+//     `linkUrl attribute is required if type attribute is 'link'`
+//   );
+// }
 
 // if type attribute is link, then linkUrl string must contain "[page]"
-if (props.type === "link" && !props.linkUrl.includes("[page]")) {
-  console.error(`linkUrl attribute must contain '[page]' substring`);
-  throw new TypeError(`linkUrl attribute must contain '[page]' substring`);
-}
+// if (props.type === "link" && !props.linkUrl.includes("[page]")) {
+//   console.error(`linkUrl attribute must contain '[page]' substring`);
+//   throw new TypeError(`linkUrl attribute must contain '[page]' substring`);
+// }
 </script>
 
 <template>
