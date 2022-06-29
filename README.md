@@ -149,7 +149,9 @@ A complete vue-awesome-paginate component example with some custom CSS customiza
 
 ##### Result of above snippet:
 
-<img src="https://i.ibb.co/Z87LJ3f/test.png" width="600" />
+<img src="https://i.ibb.co/Z87LJ3f/test.png" width="500" />
+&nbsp;
+&nbsp;
 
 ### Required Attributes
 
@@ -162,7 +164,9 @@ as simple as this example:
 
 ##### Result of above snippet:
 
-<img src="https://i.ibb.co/pKP0ztZ/2.png" width="600" />
+<img src="https://i.ibb.co/pKP0ztZ/2.png" width="500" />
+&nbsp;
+&nbsp;
 
 ### Configurations
 
@@ -181,7 +185,9 @@ Example: you can set items per single page, maximum pagination buttons to show a
 
 ##### Result of above snippet:
 
-<img src="https://i.ibb.co/fDthpxC/3.png" width="600" />
+<img src="https://i.ibb.co/fDthpxC/3.png" width="500" />
+&nbsp;
+&nbsp;
 
 #### Show/Hide or Enable/Disable breakpoint buttons
 
@@ -241,7 +247,8 @@ You can hide prev/next buttons in two ways
 
 ##### Result of above snippet:
 
-<img src="https://i.ibb.co/8rshY8B/4.png" width="600" />
+<img src="https://i.ibb.co/8rshY8B/4.png" width="500" />
+&nbsp;
 &nbsp;
 #### Change buttons content
 You can change the content inside the prev/next buttons in two ways:
@@ -258,7 +265,9 @@ You can change the content inside the prev/next buttons in two ways:
 />
 ```
 ##### Result of above snippet:
-<img src="https://d2wcj0x98hsnim.cloudfront.net/1656445736178.png" width="200" />
+<img src="https://i.ibb.co/9YQFHsW/5.png" width="500" />
+&nbsp;
+&nbsp;
 
 2- Inject your own HTML content into the buttons through custom slots
 
@@ -285,12 +294,17 @@ You can change the content inside the prev/next buttons in two ways:
 
 ##### Result of above snippet:
 
-<img src="https://d2wcj0x98hsnim.cloudfront.net/1656446826214.png" width="200" />
+<img src="https://i.ibb.co/qWykt4j/6.png" width="500" />
 This 2nd method of injecting html through custom slots in to elements is available for all the other controlling elements like breakpoint buttons and jump buttons etc...
 You can see all the slots in the slots table at API section
+
 &nbsp;
+&nbsp;
+
 #### Show Jump Buttons
+
 Jump Buttons are extra layers on top of Prev/Next buttons, if you enable them they will appear at each ends of the component, you can customize and configure them just like any other elements of the component and if you click on them it will have the same behavior as clicking on breakppoint buttons which is jumping by (max-pages-show/2)
+
 ```html
 <vue-awesome-paginate
   :total-items="50"
@@ -301,8 +315,11 @@ Jump Buttons are extra layers on top of Prev/Next buttons, if you enable them th
   :show-jump-buttons="true"
 />
 ```
+
 ##### Result of above snippet:
-<img src="https://d2wcj0x98hsnim.cloudfront.net/1656448985932.png" width="200" />
+
+<img src="https://i.ibb.co/NCbmMXb/7.png" width="500" />
+&nbsp;
 &nbsp;
 
 #### RTL and Locale Support
@@ -322,7 +339,8 @@ There are complete supports for RTL and different localizations without using an
 
 ##### Result of above snippet:
 
-<img src="https://d2wcj0x98hsnim.cloudfront.net/1656449727306.png" width="200" />
+<img src="https://i.ibb.co/ncjGdYw/8.png" width="500" />
+&nbsp;
 &nbsp;
 
 #### Custom Styles
@@ -365,9 +383,10 @@ By default pagination buttons have the default html styles, you can customize ev
 
 ##### Result of above snippet:
 
-<img src="https://d2wcj0x98hsnim.cloudfront.net/1656451021125.png" width="200" />
+<img src="https://i.ibb.co/ZJD7kWz/9.png" width="200" />
 
 You don't necessarily need to set class names for the elements if you don't want to, you can just use their default class names that are available in the class names table in the API section.
+&nbsp;
 &nbsp;
 
 ## API
