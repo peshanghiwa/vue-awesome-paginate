@@ -4,7 +4,7 @@
 
 ---
 
-[![peshanghiwa - vue-awesome-paginate](https://img.shields.io/static/v1?label=peshanghiwa&message=vue-awesome-paginate&color=yellow&logo=github)](https://github.com/peshanghiwa/vue-awesome-paginate "Go to GitHub repo") [![GitHub release](https://img.shields.io/github/release/peshanghiwa/vue-awesome-paginate?include_prereleases=&sort=semver&color=red)](https://github.com/peshanghiwa/vue-awesome-paginate/releases/)
+[![peshanghiwa - vue-awesome-paginate](https://img.shields.io/static/v1?label=peshanghiwa&message=vue-awesome-paginate&color=yellow&logo=github)](https://github.com/peshanghiwa/vue-awesome-paginate "Go to GitHub repo")
 [![npm version](https://img.shields.io/npm/v/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![npm downloads](https://img.shields.io/npm/dm/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/peshanghiwa/vue-awesome-paginate/blob/main/LICENSE)
 
 Vue Awesome Paginate is a modern and powerfull vue js pagination library with a large set of various pagination components that are flexible, very lightweight, customizable with pure CSS and very easy to use.
@@ -29,10 +29,10 @@ Vue Awesome Paginate is a modern and powerfull vue js pagination library with a 
   - [**_Vue.js_**](#Vue.js)
   - [**_Nuxt.js_**](#Nuxt.js)
 - [**_Usage_**](#usage)
-- [**_API_**](#constructor-options)
-  - [**_Component Attributes_**](#Vue.js)
-  - [**_Class Name Attributes_**](#Nuxt.js)
-  - [**_Slot Names_**](#Nuxt.js)
+- [**_API_**](#api)
+  - [**_Component Attributes_**](#Component-Attributes)
+  - [**_Class Name Attributes_**](#Class-Name-Attributes)
+  - [**_Slot Names_**](#Slot-Names)
 - [**_Author_**](#authors-&&-Contributors)
 - [**_License_**](#license)
 
@@ -61,7 +61,7 @@ $ npm i vue-awesome-paginate
 
 Then you have to register the package in your project as well as import a necessary css file that comes with the package.
 
-#### Vue.js setup
+#### Vue.js
 
 main.js
 
@@ -79,7 +79,7 @@ import "vue-awesome-paginate/dist/style.css";
 createApp(App).use(VueAwesomePaginate).mount("#app");
 ```
 
-#### Nuxt.js setup
+#### Nuxt.js
 
 plugins/vue-awesome-paginate.js
 
@@ -397,7 +397,7 @@ Note that all the attributes in the table below can be written in both camel cas
 | forwardJumpButtonContent | Content to be shown in the forward jump button | String \| Slot | ">>" | Must be either a string or a custom slot |
 &nbsp;
 
-#### Class Names Attributes
+#### Class Name Attributes
 
 All the class names have a default value.
 | Key | Description (Target) | Default |
@@ -427,6 +427,10 @@ These slot names can be used for Vue Slots in order to inject custom html in to 
 | forward-jump-button | Forward Jump Button
 | starting-breakpoint-button | Starting Breakpoint Button |
 | ending-breakpoint-button | Ending Breakpoint Button |
+
+## Author
+
+[Peshang Hiwa](https://github.com/peshanghiwa)
 
 ## License
 
