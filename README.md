@@ -61,7 +61,7 @@ $ npm i vue-awesome-paginate
 
 Then you have to register the package in your project as well as import a necessary css file that comes with the package.
 
-#### Vue.js
+### Vue.js
 
 main.js
 
@@ -79,7 +79,7 @@ import "vue-awesome-paginate/dist/style.css";
 createApp(App).use(VueAwesomePaginate).mount("#app");
 ```
 
-#### Nuxt.js
+### Nuxt.js
 
 plugins/vue-awesome-paginate.js
 
@@ -219,7 +219,7 @@ You can Disable/Enable or Hide/Show them through attributes
 
 &nbsp;
 
-#### Hide Prev/Next buttons
+### Hide Prev/Next buttons
 
 You can hide prev/next buttons in two ways
 
@@ -250,9 +250,12 @@ You can hide prev/next buttons in two ways
 <img src="https://i.ibb.co/8rshY8B/4.png" width="500" />
 &nbsp;
 &nbsp;
-#### Change buttons content
+
+### Change buttons content
+
 You can change the content inside the prev/next buttons in two ways:
- 1- Pass a string to **prev-button-content** or **next-button-content** attributes
+1- Pass a string to **prev-button-content** or **next-button-content** attributes
+
 ```html
 <vue-awesome-paginate
   :total-items="50"
@@ -264,7 +267,9 @@ You can change the content inside the prev/next buttons in two ways:
   next-button-content=">>>"
 />
 ```
+
 ##### Result of above snippet:
+
 <img src="https://i.ibb.co/9YQFHsW/5.png" width="500" />
 &nbsp;
 &nbsp;
@@ -301,7 +306,7 @@ You can see all the slots in the slots table at API section
 &nbsp;
 &nbsp;
 
-#### Show Jump Buttons
+### Show Jump Buttons
 
 Jump Buttons are extra layers on top of Prev/Next buttons, if you enable them they will appear at each ends of the component, you can customize and configure them just like any other elements of the component and if you click on them it will have the same behavior as clicking on breakppoint buttons which is jumping by (max-pages-show/2)
 
@@ -322,7 +327,7 @@ Jump Buttons are extra layers on top of Prev/Next buttons, if you enable them th
 &nbsp;
 &nbsp;
 
-#### RTL and Locale Support
+### RTL and Locale Support
 
 There are complete supports for RTL and different localizations without using any other 3rd package libraries
 
@@ -343,7 +348,7 @@ There are complete supports for RTL and different localizations without using an
 &nbsp;
 &nbsp;
 
-#### Custom Styles
+### Custom Styles
 
 By default pagination buttons have the default html styles, you can customize every element of the component through the default class names that are set for each element, or you can set your class names for any element you want.
 
@@ -391,7 +396,7 @@ You don't necessarily need to set class names for the elements if you don't want
 
 ## API
 
-#### Component Attributes
+### Component Attributes
 
 Note that all the attributes in the table below can be written in both camel case and kebab case styles.
 | Key | Description | Options | Default | Validations |
@@ -416,7 +421,7 @@ Note that all the attributes in the table below can be written in both camel cas
 | forwardJumpButtonContent | Content to be shown in the forward jump button | String \| Slot | ">>" | Must be either a string or a custom slot |
 &nbsp;
 
-#### Class Name Attributes
+### Class Name Attributes
 
 All the class names have a default value.
 | Key | Description (Target) | Default |
@@ -435,7 +440,7 @@ All the class names have a default value.
 
 &nbsp;
 
-#### Slot Names
+### Slot Names
 
 These slot names can be used for Vue Slots in order to inject custom html in to the target element
 | Slot Name | Target |
