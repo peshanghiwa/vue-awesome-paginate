@@ -40,7 +40,7 @@ Vue Awesome Paginate is a modern and powerfull vue js pagination library with a 
 
 ## Demo
 
-This is a simple [**_Demo_**](http://hilongjw.github.io/vue-lazyload/) environment for the package where you can use and test the package.
+This is a simple [**_Demo_**](https://codesandbox.io/s/vue-awesome-paginate-demo-gcg21i) environment for the package where you can use and test the package.
 
 ## Requirements
 
@@ -149,7 +149,7 @@ A complete vue-awesome-paginate component example with some custom CSS customiza
 
 ##### Result of above snippet:
 
-<img src="https://d2wcj0x98hsnim.cloudfront.net/1656270660837.png" width="200" />
+![](https://d2wcj0x98hsnim.cloudfront.net/1656270660837.png =200x)
 
 ### Required Attributes
 
