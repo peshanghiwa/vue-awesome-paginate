@@ -189,7 +189,7 @@ Example: you can set items per single page, maximum pagination buttons to show a
 &nbsp;
 &nbsp;
 
-#### Show/Hide or Enable/Disable breakpoint buttons
+### Show/Hide or Enable/Disable breakpoint buttons
 
 Breakpoint buttons are clickable and shown by default, if you click on them you will get a jump of max-pages-shown / 2 in the pagination
 
@@ -391,6 +391,8 @@ By default pagination buttons have the default html styles, you can customize ev
 <img src="https://i.ibb.co/ZJD7kWz/9.png" width="200" />
 
 You don't necessarily need to set class names for the elements if you don't want to, you can just use their default class names that are available in the class names table in the API section.
+&nbsp;
+&nbsp;
 &nbsp;
 &nbsp;
 
