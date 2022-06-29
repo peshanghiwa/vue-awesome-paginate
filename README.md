@@ -2,8 +2,6 @@
 
 #### _The Awesome Vue.js Pagination Library_
 
----
-
 [![peshanghiwa - vue-awesome-paginate](https://img.shields.io/static/v1?label=peshanghiwa&message=vue-awesome-paginate&color=yellow&logo=github)](https://github.com/peshanghiwa/vue-awesome-paginate "Go to GitHub repo")
 [![npm version](https://img.shields.io/npm/v/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![npm downloads](https://img.shields.io/npm/dm/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/peshanghiwa/vue-awesome-paginate/blob/main/LICENSE)
 
@@ -402,7 +400,7 @@ By default pagination buttons have the default html styles, you can customize ev
 
 ##### Result of above snippet:
 
-<img src="https://i.ibb.co/ZJD7kWz/9.png" width="200" />
+<img src="https://i.ibb.co/ZJD7kWz/9.png" width="500" />
 
 You don't necessarily need to set class names for the elements if you don't want to, you can just use their default class names that are available in the class names table in the API section.
 &nbsp;
