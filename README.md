@@ -149,7 +149,7 @@ A complete vue-awesome-paginate component example with some custom CSS customiza
 
 ##### Result of above snippet:
 
-<img src="https://i.ibb.co/Z87LJ3f/test.png" width="500" />
+<img src="https://i.ibb.co/Z87LJ3f/test.png" width="600" />
 
 ### Required Attributes
 
@@ -162,7 +162,7 @@ as simple as this example:
 
 ##### Result of above snippet:
 
-<img src="https://d2wcj0x98hsnim.cloudfront.net/1656530981407.png" width="200" />
+<img src="https://i.ibb.co/pKP0ztZ/2.png" width="600" />
 
 ### Configurations
 
@@ -181,7 +181,7 @@ Example: you can set items per single page, maximum pagination buttons to show a
 
 ##### Result of above snippet:
 
-<img src="https://d2wcj0x98hsnim.cloudfront.net/1656275300317.png" width="200" />
+<img src="https://i.ibb.co/fDthpxC/3.png" width="600" />
 
 #### Show/Hide or Enable/Disable breakpoint buttons
 
@@ -241,7 +241,7 @@ You can hide prev/next buttons in two ways
 
 ##### Result of above snippet:
 
-<img src="https://d2wcj0x98hsnim.cloudfront.net/1656447363266.png" width="200" />
+<img src="https://i.ibb.co/8rshY8B/4.png" width="600" />
 &nbsp;
 #### Change buttons content
 You can change the content inside the prev/next buttons in two ways:
