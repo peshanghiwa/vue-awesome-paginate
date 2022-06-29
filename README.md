@@ -149,7 +149,7 @@ A complete vue-awesome-paginate component example with some custom CSS customiza
 
 ##### Result of above snippet:
 
-<img src="https://i.ibb.co/Z87LJ3f/test.png" width="200" />
+<img src="https://i.ibb.co/Z87LJ3f/test.png" width="500" />
 
 ### Required Attributes
 
