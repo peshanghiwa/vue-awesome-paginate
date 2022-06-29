@@ -2,6 +2,7 @@
   "name": "vue-awesome-paginate",
   "private": false,
   "version": "0.0.4",
+  "description": "Modern Vue 3 Pagination Module",
   "main": "./dist/vue-awesome-paginate.umd.js",
   "module": "./dist/vue-awesome-paginate.es.js",
   "exports": {
@@ -20,6 +21,19 @@
     "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peshanghiwa/vue-awesome-paginate"
+  },
+  "license": "MIT",
+  "keywords": [
+    "vue-awesome-paginate",
+    "vue",
+    "paginate",
+    "nuxt",
+    "pagination",
+    "vue-pagination"
+  ],
   "dependencies": {
     "vue": "^3.2.25"
   },
