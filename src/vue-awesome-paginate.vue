@@ -422,7 +422,9 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
       <button
         @click="
           onClickHandler(
-            isRtl
+            disableBreakpointButtons
+              ? currentPageRef
+              : isRtl
               ? currentPageRef + Math.ceil(maxPagesShown / 2)
               : currentPageRef - Math.ceil(maxPagesShown / 2)
           )
@@ -459,7 +461,9 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
       <button
         @click="
           onClickHandler(
-            isRtl
+            disableBreakpointButtons
+              ? currentPageRef
+              : isRtl
               ? currentPageRef - Math.ceil(maxPagesShown / 2)
               : currentPageRef + Math.ceil(maxPagesShown / 2)
           )
