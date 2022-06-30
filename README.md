@@ -1,6 +1,6 @@
 # Awesome Vue Paginate
 
-#### _The Awesome Vue.js Pagination Library_
+#### _The Awesome Vue.js 3 Pagination Library_
 
 [![peshanghiwa - vue-awesome-paginate](https://img.shields.io/static/v1?label=peshanghiwa&message=vue-awesome-paginate&color=yellow&logo=github)](https://github.com/peshanghiwa/vue-awesome-paginate "Go to GitHub repo")
 [![npm version](https://img.shields.io/npm/v/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![npm downloads](https://img.shields.io/npm/dm/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/peshanghiwa/vue-awesome-paginate/blob/main/LICENSE)
@@ -171,6 +171,7 @@ as simple as this example:
 ## Configurations
 
 You have total control over your pagination component, you can configure every element's appearence, number and behavior.
+
 Example: you can set items per single page, maximum pagination buttons to show and a click event handler.
 
 ```html
@@ -215,7 +216,7 @@ You can Disable/Enable or Hide/Show them through attributes
   :items-per-page="5"
   :max-pages-shown="5"
   :on-click="onClickHandler"
-  :disable-breakpoint-buttons="false"
+  :disable-breakpoint-buttons="true"
 />
 ```
 
@@ -238,7 +239,7 @@ You can hide prev/next buttons in two ways
   :hide-prev-next="true"
 />
 
-<!--  Hide the Prev button only when pagination is at the beginning or hide next button only when pagination reaches the end -->
+<!--  Hide the Prev button only when pagination is at the beginning and hide next button only when pagination reaches the end -->
 <vue-awesome-paginate
   :total-items="50"
   :current-page="1"
@@ -260,6 +261,7 @@ You can hide prev/next buttons in two ways
 ## Change buttons content
 
 You can change the content inside the prev/next buttons in two ways:
+
 1- Pass a string to **prev-button-content** or **next-button-content** attributes
 
 ```html
@@ -306,7 +308,15 @@ You can change the content inside the prev/next buttons in two ways:
 ##### Result of above snippet:
 
 <img src="https://i.ibb.co/qWykt4j/6.png" width="500" />
-This 2nd method of injecting html through custom slots in to elements is available for all the other controlling elements like breakpoint buttons and jump buttons etc...
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+## Custom Slots
+
+**This 2nd method of injecting html through custom slots in to elements in the previous example is available for all the other controlling elements like breakpoint buttons and jump buttons etc...**
 You can see all the slots in the slots table at API section
 
 &nbsp;
@@ -339,7 +349,7 @@ Jump Buttons are extra layers on top of Prev/Next buttons, if you enable them th
 
 ## RTL and Locale Support
 
-There are complete supports for RTL and different localizations without using any other 3rd package libraries
+There are complete supports for RTL and different localizations without using any other 3rd party libraries
 
 ```html
 <vue-awesome-paginate
@@ -362,7 +372,7 @@ There are complete supports for RTL and different localizations without using an
 
 ## Custom Styles
 
-By default pagination buttons have the default html styles, you can customize every element of the component through the default class names that are set for each element, or you can set your class names for any element you want.
+By default pagination buttons have the default html styles, you can customize every element of the component through the default class names that are set for each element, or you can set your own class names for any element you want.
 
 ```html
 <template>
@@ -403,6 +413,7 @@ By default pagination buttons have the default html styles, you can customize ev
 <img src="https://i.ibb.co/ZJD7kWz/9.png" width="500" />
 
 You don't necessarily need to set class names for the elements if you don't want to, you can just use their default class names that are available in the class names table in the API section.
+
 &nbsp;
 &nbsp;
 &nbsp;
@@ -433,6 +444,7 @@ Note that all the attributes in the table below can be written in both camel cas
 | showJumpButtons | Show/Hide the jump buttons | Boolean | false | |
 | backwardJumpButtonContent | Content to be shown in the backward jump button | String \| Slot | "<<" | Must be either a string or a custom slot |
 | forwardJumpButtonContent | Content to be shown in the forward jump button | String \| Slot | ">>" | Must be either a string or a custom slot |
+
 &nbsp;
 &nbsp;
 &nbsp;
