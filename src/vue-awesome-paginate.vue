@@ -58,7 +58,6 @@ const props = defineProps({
       return true;
     },
   },
-  // !-- Not published yet
   type: {
     type: String,
     default: "button",
@@ -77,11 +76,6 @@ const props = defineProps({
   onClick: {
     type: Function,
     default: () => {},
-  },
-  // !-- Not published yet
-  href: {
-    type: String,
-    default: "#",
   },
   locale: {
     type: String,
@@ -134,18 +128,9 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  // !-- Not published yet
   linkUrl: {
     type: String,
     default: "#",
-    validator: (value: number) => {
-      const message = "currentPage attribute must be greater than 0.";
-      if (value <= 0) {
-        console.error(message);
-        throw new TypeError(message);
-      }
-      return true;
-    },
   },
   backwardJumpButtonContent: {
     type: String,
@@ -249,6 +234,7 @@ const NumbersLocale = (number: number) => {
   }
 };
 const navigationHandler = (page: number) => {
+  if (props.type !== "link") return "";
   return props.linkUrl.replace("[page]", page.toString());
 };
 
@@ -364,27 +350,35 @@ const lastButtonIfCondition = computed(() => {
 // }
 
 // if type attribute is link, then linkUrl attribute is required
-// if (props.type === "link" && props.linkUrl === "#") {
-//   console.error(`linkUrl attribute is required if type attribute is 'link'`);
-//   throw new TypeError(
-//     `linkUrl attribute is required if type attribute is 'link'`
-//   );
-// }
+if (props.type === "link" && props.linkUrl === "#") {
+  console.error(`linkUrl attribute is required if type attribute is 'link'`);
+  throw new TypeError(
+    `linkUrl attribute is required if type attribute is 'link'`
+  );
+}
 
 // if type attribute is link, then linkUrl string must contain "[page]"
-// if (props.type === "link" && !props.linkUrl.includes("[page]")) {
-//   console.error(`linkUrl attribute must contain '[page]' substring`);
-//   throw new TypeError(`linkUrl attribute must contain '[page]' substring`);
-// }
+if (props.type === "link" && !props.linkUrl.includes("[page]")) {
+  console.error(`linkUrl attribute must contain '[page]' substring`);
+  throw new TypeError(`linkUrl attribute must contain '[page]' substring`);
+}
 </script>
 
 <template>
   <!-- If the type prop is 'button' following template will render -->
-  <ul v-if="type === 'button'" :class="paginationContainerClass">
+  <ul id="componentContainer" :class="paginationContainerClass">
     <!-- Backward Jump Button -->
     <li v-if="showJumpButtons && startingBreakPointButtonIfCondition">
-      <button
-        @click="
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="
+          navigationHandler(
+            isRtl
+              ? currentPageRef + Math.ceil(maxPagesShown / 2)
+              : currentPageRef - Math.ceil(maxPagesShown / 2)
+          )
+        "
+        @click.prevent="
           onClickHandler(
             isRtl
               ? currentPageRef + Math.ceil(maxPagesShown / 2)
@@ -396,35 +390,53 @@ const lastButtonIfCondition = computed(() => {
         <slot name="backward-jump-button">
           {{ backwardJumpButtonContent }}
         </slot>
-      </button>
+      </component>
     </li>
 
     <!-- Back Button -->
     <li v-if="!hidePrevNext && backButtonIfCondition">
-      <button
-        @click="onClickHandler(isRtl ? currentPageRef + 1 : currentPageRef - 1)"
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="
+          navigationHandler(isRtl ? currentPageRef + 1 : currentPageRef - 1)
+        "
+        @click.prevent="
+          onClickHandler(isRtl ? currentPageRef + 1 : currentPageRef - 1)
+        "
         :class="[backButtonClass, paginateButtonsClass]"
       >
         <slot name="prev-button">
           {{ prevButtonContent }}
         </slot>
-      </button>
+      </component>
     </li>
 
     <!-- First Button before Starting Breakpoint Button -->
     <li v-if="showBreakpointButtons && firstButtonIfCondition">
-      <button
-        @click="onClickHandler(isRtl ? totalPages : 1)"
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="navigationHandler(isRtl ? totalPages : 1)"
+        @click.prevent="onClickHandler(isRtl ? totalPages : 1)"
         :class="[firstButtonClass, paginateButtonsClass]"
       >
         {{ isRtl ? NumbersLocale(totalPages) : NumbersLocale(1) }}
-      </button>
+      </component>
     </li>
 
     <!-- Starting Breakpoint Button -->
     <li v-if="showBreakpointButtons && startingBreakPointButtonIfCondition">
-      <button
-        @click="
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="
+          navigationHandler(
+            disableBreakpointButtons
+              ? currentPageRef
+              : isRtl
+              ? currentPageRef + Math.ceil(maxPagesShown / 2)
+              : currentPageRef - Math.ceil(maxPagesShown / 2)
+          )
+        "
+        @click.prevent="
           onClickHandler(
             disableBreakpointButtons
               ? currentPageRef
@@ -443,13 +455,15 @@ const lastButtonIfCondition = computed(() => {
         <slot name="starting-breakpoint-button">
           {{ startingBreakpointContent }}
         </slot>
-      </button>
+      </component>
     </li>
 
     <!-- Numbers Buttons -->
     <li v-for="(page, index) in paginate.pages" :key="index">
-      <button
-        @click="() => onClickHandler(page)"
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="navigationHandler(page)"
+        @click.prevent="() => onClickHandler(page)"
         :class="[
           paginateButtonsClass,
           numberButtonsClass,
@@ -457,13 +471,23 @@ const lastButtonIfCondition = computed(() => {
         ]"
       >
         {{ NumbersLocale(page) }}
-      </button>
+      </component>
     </li>
 
     <!-- Ending Breakpoint Button -->
     <li v-if="showBreakpointButtons && endingBreakPointButtonIfCondition">
-      <button
-        @click="
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="
+          navigationHandler(
+            disableBreakpointButtons
+              ? currentPageRef
+              : isRtl
+              ? currentPageRef - Math.ceil(maxPagesShown / 2)
+              : currentPageRef + Math.ceil(maxPagesShown / 2)
+          )
+        "
+        @click.prevent="
           onClickHandler(
             disableBreakpointButtons
               ? currentPageRef
@@ -482,35 +506,51 @@ const lastButtonIfCondition = computed(() => {
         <slot name="ending-breakpoint-button">
           {{ endingBreakpointButtonContent }}
         </slot>
-      </button>
+      </component>
     </li>
 
     <!-- Last Button after Ending Breakingpoint Button-->
     <li v-if="showBreakpointButtons && lastButtonIfCondition">
-      <button
-        @click="onClickHandler(isRtl ? 1 : totalPages)"
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="navigationHandler(isRtl ? 1 : totalPages)"
+        @click.prevent="onClickHandler(isRtl ? 1 : totalPages)"
         :class="[lastButtonClass, paginateButtonsClass]"
       >
         {{ isRtl ? NumbersLocale(1) : NumbersLocale(totalPages) }}
-      </button>
+      </component>
     </li>
 
     <!-- Next Button -->
     <li v-if="!hidePrevNext && nextButtonIfCondition">
-      <button
-        @click="onClickHandler(isRtl ? currentPageRef - 1 : currentPageRef + 1)"
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="
+          navigationHandler(isRtl ? currentPageRef - 1 : currentPageRef + 1)
+        "
+        @click.prevent="
+          onClickHandler(isRtl ? currentPageRef - 1 : currentPageRef + 1)
+        "
         :class="[paginateButtonsClass, nextButtonClass]"
       >
         <slot name="next-button">
           {{ nextButtonContent }}
         </slot>
-      </button>
+      </component>
     </li>
 
     <!-- Forward Jump Button -->
     <li v-if="showJumpButtons && endingBreakPointButtonIfCondition">
-      <button
-        @click="
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="
+          navigationHandler(
+            isRtl
+              ? currentPageRef - Math.ceil(maxPagesShown / 2)
+              : currentPageRef + Math.ceil(maxPagesShown / 2)
+          )
+        "
+        @click.prevent="
           onClickHandler(
             isRtl
               ? currentPageRef - Math.ceil(maxPagesShown / 2)
@@ -522,13 +562,8 @@ const lastButtonIfCondition = computed(() => {
         <slot name="forward-jump-button">
           {{ forwardJumpButtonContent }}
         </slot>
-      </button>
+      </component>
     </li>
-  </ul>
-
-  <!-- If the type prop is 'link' following template will render -->
-  <ul v-if="type === 'link'" :class="paginationContainerClass">
-    link paginate is not available yet
   </ul>
 </template>
 

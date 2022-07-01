@@ -22,5 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-main.ts
-app.vue
+# main.ts
+# app.vue
