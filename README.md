@@ -365,7 +365,7 @@ example:
   :items-per-page="5"
   :max-pages-shown="5"
   :on-click="onClickHandler"
-  type="'link'"
+  type="link"
   link-url="/blog/posts?page=[page]"
 />
 ```
