@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, toRef } from "vue";
 
 // -------------------- //
 // ---> Properties <--- //
@@ -97,6 +97,10 @@ const props = defineProps({
       }
       return true;
     },
+  },
+  disablePagination: {
+    type: Boolean,
+    default: false,
   },
   prevButtonContent: {
     type: String,
@@ -219,6 +223,10 @@ const props = defineProps({
 // ---> Refs <--- //
 // -------------- //
 const currentPageRef = ref(props.currentPage);
+// -------------- //
+// ---> To Refs <--- //
+// -------------- //
+const isDisablePagination = toRef(props, 'disablePagination');
 
 // ----------------- //
 // ---> Methods <--- //
@@ -392,6 +400,7 @@ const lastButtonIfCondition = computed(() => {
           )
         "
         :class="[backwardJumpButtonClass, paginateButtonsClass]"
+        :disabled="isDisablePagination"
       >
         <slot name="backward-jump-button">
           {{ backwardJumpButtonContent }}
@@ -404,6 +413,7 @@ const lastButtonIfCondition = computed(() => {
       <button
         @click="onClickHandler(isRtl ? currentPageRef + 1 : currentPageRef - 1)"
         :class="[backButtonClass, paginateButtonsClass]"
+        :disabled="isDisablePagination"
       >
         <slot name="prev-button">
           {{ prevButtonContent }}
@@ -416,6 +426,7 @@ const lastButtonIfCondition = computed(() => {
       <button
         @click="onClickHandler(isRtl ? totalPages : 1)"
         :class="[firstButtonClass, paginateButtonsClass]"
+        :disabled="isDisablePagination"
       >
         {{ isRtl ? NumbersLocale(totalPages) : NumbersLocale(1) }}
       </button>
@@ -433,12 +444,12 @@ const lastButtonIfCondition = computed(() => {
               : currentPageRef - Math.ceil(maxPagesShown / 2)
           )
         "
-        :disabled="disableBreakpointButtons"
         :class="[
           startingBreakpointButtonClass,
           paginateButtonsClass,
           disableBreakpointButtons ? disabledBreakPointButtonClass : '',
         ]"
+        :disabled="disableBreakpointButtons || disablePagination"
       >
         <slot name="starting-breakpoint-button">
           {{ startingBreakpointContent }}
@@ -455,6 +466,8 @@ const lastButtonIfCondition = computed(() => {
           numberButtonsClass,
           page === currentPageRef ? activePageClass : '',
         ]"
+
+        :disabled="isDisablePagination"
       >
         {{ NumbersLocale(page) }}
       </button>
@@ -472,12 +485,12 @@ const lastButtonIfCondition = computed(() => {
               : currentPageRef + Math.ceil(maxPagesShown / 2)
           )
         "
-        :disabled="disableBreakpointButtons"
         :class="[
           endingBreakPointButtonClass,
           paginateButtonsClass,
           disableBreakpointButtons ? disabledBreakPointButtonClass : '',
         ]"
+        :disabled="disableBreakpointButtons || isDisablePagination"
       >
         <slot name="ending-breakpoint-button">
           {{ endingBreakpointButtonContent }}
@@ -490,6 +503,7 @@ const lastButtonIfCondition = computed(() => {
       <button
         @click="onClickHandler(isRtl ? 1 : totalPages)"
         :class="[lastButtonClass, paginateButtonsClass]"
+        :disabled="isDisablePagination"
       >
         {{ isRtl ? NumbersLocale(1) : NumbersLocale(totalPages) }}
       </button>
@@ -500,6 +514,7 @@ const lastButtonIfCondition = computed(() => {
       <button
         @click="onClickHandler(isRtl ? currentPageRef - 1 : currentPageRef + 1)"
         :class="[paginateButtonsClass, nextButtonClass]"
+        :disabled="isDisablePagination"
       >
         <slot name="next-button">
           {{ nextButtonContent }}
@@ -518,6 +533,7 @@ const lastButtonIfCondition = computed(() => {
           )
         "
         :class="[forwardJumpButtonClass, paginateButtonsClass]"
+        :disabled="isDisablePagination"
       >
         <slot name="forward-jump-button">
           {{ forwardJumpButtonContent }}

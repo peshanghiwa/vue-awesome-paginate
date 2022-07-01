@@ -433,6 +433,7 @@ Note that all the attributes in the table below can be written in both camel cas
 | dir | Driection of the component (RTL Support) | "ltr" \| "rtl" | "ltr" | Must be one of either options |
 | onClick | A function that runs when the user changes a page by clicking any of the elements of the component (Passing the new active page to the function as a parameter) | Function | ()=>{} | |
 | locale | Localization of the component (currently only Arabic, English and Persian locales are supported, more localization options will be added! | "en" \| "ar" \| "ir" | "en" | Must be one of the available options) |
+| showJumpButtons | Disable pagination. it is useful when you fetch data from another source | Boolean | false | |
 | prevButtonContent | Content to be shown in the prev button | String \| Slot | "<" | Must be either a string or a custom slot |
 | nextButtonContent | Content to be shown in the prev button | String \| Slot | ">" | Must be either a string or a custom slot |
 | hidePrevNext | Hide the prev and next buttons permanently | Boolean | false | |
