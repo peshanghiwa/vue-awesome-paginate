@@ -208,10 +208,6 @@ const props = defineProps({
 // ---> Refs <--- //
 // -------------- //
 const currentPageRef = ref(props.currentPage);
-// -------------- //
-// ---> To Refs <--- //
-// -------------- //
-const isDisablePagination = toRef(props, 'disablePagination');
 
 // ----------------- //
 // ---> Methods <--- //
@@ -251,7 +247,7 @@ const navigationHandler = (page: number) => {
 // ----------------------------- //
 //calculating total pages
 const { value: totalPages } = computed(() =>
-  Math.ceil(props.totalItems / props.itemsPerPage)
+    Math.ceil(props.totalItems / props.itemsPerPage)
 );
 // Pagination logic
 const paginate = computed(() => {
@@ -303,6 +299,18 @@ const paginate = computed(() => {
 });
 // rtl check
 const isRtl = computed(() => props.dir === "rtl");
+
+/**
+ * @returns an Object of attrs bind to a tag
+ * */
+const isDisabledPagination = computed(() => {
+  const paginationDisabledAttrs = {
+    ...(props.type === "button" && { disabled: true }),
+    ...(props.type === "link" && { "aria-current": "page" }),
+  };
+  // you can bind more attrs based on your props
+  return props.disablePagination ? paginationDisabledAttrs : {};
+});
 
 // ---------------------------------- //
 // ---> Components If Conditions <--- //
@@ -393,8 +401,8 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
               : currentPageRef - Math.ceil(maxPagesShown / 2)
           )
         "
-        :class="[backwardJumpButtonClass, paginateButtonsClass]"
-        :disabled="isDisablePagination"
+          :class="[backwardJumpButtonClass, paginateButtonsClass]"
+          v-bind="isDisabledPagination"
       >
         <slot name="backward-jump-button">
           {{ backwardJumpButtonContent }}
@@ -412,8 +420,8 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
         @click.prevent="
           onClickHandler(isRtl ? currentPageRef + 1 : currentPageRef - 1)
         "
-        :class="[backButtonClass, paginateButtonsClass]"
-        :disabled="isDisablePagination"
+          :class="[backButtonClass, paginateButtonsClass]"
+          v-bind="isDisabledPagination"
       >
         <slot name="prev-button">
           {{ prevButtonContent }}
@@ -428,7 +436,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
         :href="navigationHandler(isRtl ? totalPages : 1)"
         @click.prevent="onClickHandler(isRtl ? totalPages : 1)"
         :class="[firstButtonClass, paginateButtonsClass]"
-        :disabled="isDisablePagination"
+        v-bind="isDisabledPagination"
       >
         {{ isRtl ? NumbersLocale(totalPages) : NumbersLocale(1) }}
       </component>
@@ -461,7 +469,8 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
           paginateButtonsClass,
           disableBreakpointButtons ? disabledBreakPointButtonClass : '',
         ]"
-        :disabled="disableBreakpointButtons || disablePagination"
+        :disabled="disableBreakpointButtons"
+        v-bind="isDisabledPagination"
       >
         <slot name="starting-breakpoint-button">
           {{ startingBreakpointContent }}
@@ -480,8 +489,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
           numberButtonsClass,
           page === currentPageRef ? activePageClass : '',
         ]"
-
-        :disabled="isDisablePagination"
+        v-bind="isDisabledPagination"
       >
         {{ NumbersLocale(page) }}
       </component>
@@ -514,7 +522,8 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
           paginateButtonsClass,
           disableBreakpointButtons ? disabledBreakPointButtonClass : '',
         ]"
-        :disabled="disableBreakpointButtons || isDisablePagination"
+        :disabled="disableBreakpointButtons"
+          v-bind="isDisabledPagination"
       >
         <slot name="ending-breakpoint-button">
           {{ endingBreakpointButtonContent }}
@@ -522,14 +531,14 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
       </component>
     </li>
 
-    <!-- Last Button after Ending Breakingpoint Button-->
+    <!-- Last Button after Ending Breakpoint Button-->
     <li v-if="showBreakpointButtons && lastButtonIfCondition">
       <component
         :is="type === 'button' ? 'button' : 'a'"
         :href="navigationHandler(isRtl ? 1 : totalPages)"
         @click.prevent="onClickHandler(isRtl ? 1 : totalPages)"
         :class="[lastButtonClass, paginateButtonsClass]"
-        :disabled="isDisablePagination"
+        v-bind="isDisabledPagination"
       >
         {{ isRtl ? NumbersLocale(1) : NumbersLocale(totalPages) }}
       </component>
@@ -545,8 +554,8 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
         @click.prevent="
           onClickHandler(isRtl ? currentPageRef - 1 : currentPageRef + 1)
         "
-        :class="[paginateButtonsClass, nextButtonClass]"
-        :disabled="isDisablePagination"
+          :class="[paginateButtonsClass, nextButtonClass]"
+          v-bind="isDisabledPagination"
       >
         <slot name="next-button">
           {{ nextButtonContent }}
@@ -572,8 +581,8 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
               : currentPageRef + Math.ceil(maxPagesShown / 2)
           )
         "
-        :class="[forwardJumpButtonClass, paginateButtonsClass]"
-        :disabled="isDisablePagination"
+          :class="[forwardJumpButtonClass, paginateButtonsClass]"
+          v-bind="isDisabledPagination"
       >
         <slot name="forward-jump-button">
           {{ forwardJumpButtonContent }}
@@ -597,5 +606,12 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+[aria-current="page"] {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: #818183;
 }
 </style>
