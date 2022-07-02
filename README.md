@@ -467,6 +467,7 @@ Note that all the attributes in the table below can be written in both camel cas
 | type | HTML Element type of the pagination component | "button" \| "link" | "button" | must be either a link or button |
 | linkUrl | The url string that the anchor tag is pointing to | String | | required when type attribute is set to 'link', and must include "\[page\]" placeholder in order to be replaced with the actual page number during rendering |
 | locale | Localization of the component (currently only Arabic, English and Persian locales are supported, more localization options will be added! | "en" \| "ar" \| "ir" | "en" | Must be one of the available options) |
+| disablePagination | Useful when you fetch data from another resource | Boolean | false | |
 | prevButtonContent | Content to be shown in the prev button | String \| Slot | "<" | Must be either a string or a custom slot |
 | nextButtonContent | Content to be shown in the prev button | String \| Slot | ">" | Must be either a string or a custom slot |
 | hidePrevNext | Hide the prev and next buttons permanently | Boolean | false | |
