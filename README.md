@@ -5,7 +5,7 @@
 [![peshanghiwa - vue-awesome-paginate](https://img.shields.io/static/v1?label=peshanghiwa&message=vue-awesome-paginate&color=yellow&logo=github)](https://github.com/peshanghiwa/vue-awesome-paginate "Go to GitHub repo")
 [![npm version](https://img.shields.io/npm/v/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![npm downloads](https://img.shields.io/npm/dm/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/peshanghiwa/vue-awesome-paginate/blob/main/LICENSE)
 
-Vue Awesome Paginate is a modern and powerfull vue js pagination library with a large set of various pagination components that are flexible, very lightweight, customizable with pure CSS and very easy to use.
+Vue Awesome Paginate is a modern and powerfull vue js pagination library with a large set of various pagination components that are flexible, very lightweight, SEO friendly, customizable with pure CSS and very easy to use.
 
 ## Key Features
 
@@ -13,6 +13,7 @@ Vue Awesome Paginate is a modern and powerfull vue js pagination library with a 
 - Various different types of pagination components that you can enable or disable according to your needs, and what suits your website best.
 - Complete customization support for every component using pure CSS.
 - Complete RTL support.
+- Search Engine Optimization friendly.
 - Different localizations support.
 - Package is built with typescript and vite with complete support for vue.js (3x) and nuxt.js (3.x)
   &nbsp;
@@ -347,6 +348,35 @@ Jump Buttons are extra layers on top of Prev/Next buttons, if you enable them th
 &nbsp;
 &nbsp;
 
+## Make the component SEO friendly
+
+Pagination components can have a great impact on SEO, it's important to make your pagination elements links, so that when crawlers crawl your page, they will be able to find the pagination elements and extract the links from them.
+
+In order to achive this you can replace the button elements with anchor tag elements by changing **type** attribute to "link" and specify a **linkUrl** attribute to tell crawlers and search engines where this pagination element is pointing to.
+
+**linkUrl** attribute must be a string url to where the pagination element is pointing to, and the string must include \[page\] placeholder, which will be replaced with the actual page number.
+
+example:
+
+```html
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  :on-click="onClickHandler"
+  type="link"
+  link-url="/blog/posts?page=[page]"
+/>
+```
+
+**Note:** Changing buttons to anchor tags won't affect the functionality or the behavior of the component, it's just a way to make the component SEO friendly. you will still have to handle the navigation logic yourself in **on-click** event attribute.
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
 ## RTL and Locale Support
 
 There are complete supports for RTL and different localizations without using any other 3rd party libraries
@@ -414,6 +444,8 @@ By default pagination buttons have the default html styles, you can customize ev
 
 You don't necessarily need to set class names for the elements if you don't want to, you can just use their default class names that are available in the class names table in the API section.
 
+**Important Note:** Do not make parent component of vue-awesome-paginate style scoped!, it will cause the style to be scoped to the parent component itself and none of the styles will get applied to the vue-awesome-paginate component.
+
 &nbsp;
 &nbsp;
 &nbsp;
@@ -426,12 +458,14 @@ You don't necessarily need to set class names for the elements if you don't want
 Note that all the attributes in the table below can be written in both camel case and kebab case styles.
 | Key | Description | Options | Default | Validations |
 | ------ | ------ | ------ | ------ | ------ |
-| totalItems | Total Number of items that you want to paginate | Number | | Required
+| totalItems | Total Number of items that you want to paginate | Number | | Required |
 | itemsPerPage | Total Number of items that you explicitly want to show per one page | Number | 10 | Must be greater than 0 |
 | currentPage | Current active page | Number | 1 | Must be greater than 0 |
 | maxPagesShown | Maximum pagination buttons (Number Buttons only) to be shown | Number | 5 | Must be greater than 0 |
 | dir | Driection of the component (RTL Support) | "ltr" \| "rtl" | "ltr" | Must be one of either options |
 | onClick | A function that runs when the user changes a page by clicking any of the elements of the component (Passing the new active page to the function as a parameter) | Function | ()=>{} | |
+| type | HTML Element type of the pagination component | "button" \| "link" | "button" | must be either a link or button |
+| linkUrl | The url string that the anchor tag is pointing to | String | | required when type attribute is set to 'link', and must include "\[page\]" placeholder in order to be replaced with the actual page number during rendering |
 | locale | Localization of the component (currently only Arabic, English and Persian locales are supported, more localization options will be added! | "en" \| "ar" \| "ir" | "en" | Must be one of the available options) |
 | disablePagination | Useful when you fetch data from another resource | Boolean | false | |
 | prevButtonContent | Content to be shown in the prev button | String \| Slot | "<" | Must be either a string or a custom slot |
