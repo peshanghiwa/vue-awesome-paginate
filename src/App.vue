@@ -8,12 +8,11 @@ import vueAwesomePaginate from "./vue-awesome-paginate.vue";
     :current-page="1"
     :items-per-page="5"
     :max-pages-shown="5"
-    :disable-pagination="true"
   />
 </template>
 
 <style>
-/* .pagination-container {
+.pagination-container {
   display: flex;
   column-gap: 10px;
 }
@@ -36,5 +35,5 @@ import vueAwesomePaginate from "./vue-awesome-paginate.vue";
 }
 .active-page:hover {
   background-color: #2988c8;
-} */
+}
 </style>

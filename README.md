@@ -491,16 +491,20 @@ All the class names have a default value.
 | ------ | ------ | ------ |
 | paginationContainerClass | Styles for this class will be applied for the container of the whole compoent | pagination-container |
 | paginateButtonsClass | A global class name, styles for this class will be applied for all of the buttons inside the component | paginate-buttons |
-| disabledPaginateButtonsClass | A global class name, styles for this class will be applied for all of the buttons in disabled mode inside the component | disabled-paginate-buttons |
+| disabledPaginateButtonsClass | A global class name, styles for this class will be applied for all of the buttons when disabled inside the component | disabled-paginate-buttons |
 | numberButtonsClass | Styles for this class will be applied for all the number buttons | number-buttons |
 | activePageClass | Styles for this class will be applied for the current active page button | active-page |
 | backButtonClass | Styles for this class will be applied for the back button | back-button |
 | nextButtonClass | Styles for this class will be applied for the next button | next-button |
 | startingBreakpointButtonClass | Styles for this class will be applied for the starting breakpoint button | starting-breakpoint-button |
 | endingBreakpointButtonClass | Styles for this class will be applied for the ending breakpoint button | ending-breakpoint-button |
-| disabledBreakPointButtonClass | Styles for this class will be applied for the disabled breakpoint buttons | disabled-breakpoint-button |
+| disabledBreakPointButtonClass | Styles for this class will be applied for the breakpoint buttons when the whole pagination component is disbaled or the breakpoints are disabled | disabled-breakpoint-button |
 | backwardJumpButtonClass | Styles for this class will be applied for the backward jump button | backward-jump-button |
 | forwardJumpButtonClass | Styles for this class will be applied for the forward jump button | forward-jump-button |
+| disabledBackwardJumpButtonClass | Styles for this class will be applied for the backward jump button when pagination is disbaled | disabled-backward-jump-button |
+| disabledBackButtonClass | Styles for this class will be applied for the back button when pagination is disbaled | disabled-back-button |
+| disabledNextButtonClass | Styles for this class will be applied for the next button when pagination is disbaled | disabled-next-button |
+| disabledForwardJumpButtonClass | Styles for this class will be applied for the forward jump butto when pagination is disbaled | disabled-forward-jump-button |
 
 &nbsp;
 &nbsp;

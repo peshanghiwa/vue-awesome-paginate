@@ -206,6 +206,32 @@ const props = defineProps({
     type: String,
     default: "forward-jump-button",
   },
+  disabledBackwardJumpButtonClass: {
+    type: String,
+    default: "disabled-backward-jump-button",
+  },
+  disabledBackButtonClass: {
+    type: String,
+    default: "disabled-back-button",
+  },
+  // not included in the documentation yet
+  disabledFirstButtonClass: {
+    type: String,
+    default: "disabled-first-button",
+  },
+  // not included in the documentation yet
+  disabledLastButtonClass: {
+    type: String,
+    default: "disabled-last-button",
+  },
+  disabledNextButtonClass: {
+    type: String,
+    default: "disabled-next-button",
+  },
+  disabledForwardJumpButtonClass: {
+    type: String,
+    default: "disabled-forward-jump-button",
+  },
 });
 
 // -------------- //
@@ -399,6 +425,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
           backwardJumpButtonClass,
           paginateButtonsClass,
           disablePagination ? disabledPaginateButtonsClass : '',
+          disablePagination ? disabledBackwardJumpButtonClass : '',
         ]"
         :disabled="disablePagination"
       >
@@ -422,6 +449,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
           backButtonClass,
           paginateButtonsClass,
           disablePagination ? disabledPaginateButtonsClass : '',
+          disablePagination ? disabledBackButtonClass : '',
         ]"
         :disabled="disablePagination"
       >
@@ -441,6 +469,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
           firstButtonClass,
           paginateButtonsClass,
           disablePagination ? disabledPaginateButtonsClass : '',
+          disablePagination ? disabledFirstButtonClass : '',
         ]"
         :disabled="disablePagination"
       >
@@ -474,8 +503,9 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
         :class="[
           startingBreakpointButtonClass,
           paginateButtonsClass,
-          disableBreakpointButtons ? disabledBreakPointButtonClass : '',
-          disablePagination ? disabledPaginateButtonsClass : '',
+          disableBreakpointButtons || disablePagination
+            ? `${disabledPaginateButtonsClass} ${disabledBreakPointButtonClass}`
+            : '',
         ]"
       >
         <slot name="starting-breakpoint-button">
@@ -528,8 +558,9 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
         :class="[
           endingBreakPointButtonClass,
           paginateButtonsClass,
-          disableBreakpointButtons ? disabledBreakPointButtonClass : '',
-          disablePagination ? disabledPaginateButtonsClass : '',
+          disableBreakpointButtons || disablePagination
+            ? `${disabledPaginateButtonsClass} ${disabledBreakPointButtonClass}`
+            : '',
         ]"
       >
         <slot name="ending-breakpoint-button">
@@ -547,8 +578,8 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
         :class="[
           lastButtonClass,
           paginateButtonsClass,
-
           disablePagination ? disabledPaginateButtonsClass : '',
+          disablePagination ? disabledLastButtonClass : '',
         ]"
         :disabled="disablePagination"
       >
@@ -570,6 +601,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
           paginateButtonsClass,
           nextButtonClass,
           disablePagination ? disabledPaginateButtonsClass : '',
+          disablePagination ? disabledNextButtonClass : '',
         ]"
         :disabled="disablePagination"
       >
@@ -601,6 +633,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
           forwardJumpButtonClass,
           paginateButtonsClass,
           disablePagination ? disabledPaginateButtonsClass : '',
+          disablePagination ? disabledForwardJumpButtonClass : '',
         ]"
         :disabled="disablePagination"
       >
