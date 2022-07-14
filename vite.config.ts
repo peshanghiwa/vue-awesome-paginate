@@ -10,12 +10,9 @@ export default defineConfig({
       name: "vue-awesome-paginate",
       fileName: (format) => `vue-awesome-paginate.${format}.js`,
     },
-
     rollupOptions: {
       external: ["vue"],
-
       output: {
-        // sourcemap: true,
         globals: {
           vue: "Vue",
         },
