@@ -471,6 +471,7 @@ Note that all the attributes in the table below can be written in both camel cas
 | nextButtonContent | Content to be shown in the prev button | String \| Slot | ">" | Must be either a string or a custom slot |
 | hidePrevNext | Hide the prev and next buttons permanently | Boolean | false | |
 | hidePrevNextWhenEnds | Hide the prev button when pagination is at the beginning and next button when the pagination is at the end | Boolean | false | |
+| disablePagination | Enable/Disable the whole component buttons | Boolean | false | |
 | showBreakpointButtons | Show/Hide the breakpoint buttons | Boolean | true | |
 | disableBreakpointButtons | Enable/Disable the breakpoint buttons | Boolean | false | |
 | startingBreakpointContent | Content to be shown in the starting breakpoint button | String \| Slot | "..." | Must be either a string or a custom slot |
@@ -490,6 +491,7 @@ All the class names have a default value.
 | ------ | ------ | ------ |
 | paginationContainerClass | Styles for this class will be applied for the container of the whole compoent | pagination-container |
 | paginateButtonsClass | A global class name, styles for this class will be applied for all of the buttons inside the component | paginate-buttons |
+| disabledPaginateButtonsClass | A global class name, styles for this class will be applied for all of the buttons in disabled mode inside the component | disabled-paginate-buttons |
 | numberButtonsClass | Styles for this class will be applied for all the number buttons | number-buttons |
 | activePageClass | Styles for this class will be applied for the current active page button | active-page |
 | backButtonClass | Styles for this class will be applied for the back button | back-button |
