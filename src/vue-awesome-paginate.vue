@@ -247,7 +247,7 @@ const onClickHandler = (number: number) => {
   if (number === currentPageRef.value) return;
 
   // if number is greater than the total pages, do nothing
-  if (number > totalPages) return;
+  if (number > totalPages.value) return;
 
   // if number is less than 1, do nothing
   if (number < 1) return;
@@ -278,16 +278,16 @@ const navigationHandler = (page: number) => {
 // ---> Computed properties <--- //
 // ----------------------------- //
 //calculating total pages
-const { value: totalPages } = computed(() =>
+const totalPages = computed(() =>
   Math.ceil(props.totalItems / props.itemsPerPage)
 );
 // Pagination logic
 const paginate = computed(() => {
   let startPage: number, endPage: number;
   // if total pages are less than maximum pages to be displayed (maxPagesShown), then show all pages
-  if (totalPages <= props.maxPagesShown) {
+  if (totalPages.value <= props.maxPagesShown) {
     startPage = 1;
-    endPage = totalPages;
+    endPage = totalPages.value;
   } else {
     // total pages is more than maxPagesShown...
     // calculating start and end pages
@@ -299,11 +299,11 @@ const paginate = computed(() => {
       endPage = props.maxPagesShown;
     } else if (
       currentPageRef.value + maxPagesShownAfterCurrentPage >=
-      totalPages
+      totalPages.value
     ) {
       // current page is at the end of the pagination
-      startPage = totalPages - props.maxPagesShown + 1;
-      endPage = totalPages;
+      startPage = totalPages.value - props.maxPagesShown + 1;
+      endPage = totalPages.value;
     } else {
       // current page is somewhere in the middle of the pagination
       startPage = currentPageRef.value - maxPagesShownBeforeCurrentPage;
@@ -337,7 +337,9 @@ const isRtl = computed(() => props.dir === "rtl");
 // ---------------------------------- //
 const backButtonIfCondition = computed(() => {
   if (isRtl.value)
-    return !props.hidePrevNextWhenEnds || currentPageRef.value !== totalPages;
+    return (
+      !props.hidePrevNextWhenEnds || currentPageRef.value !== totalPages.value
+    );
 
   return !props.hidePrevNextWhenEnds || currentPageRef.value !== 1;
 });
@@ -345,11 +347,13 @@ const nextButtonIfCondition = computed(() => {
   if (isRtl.value)
     return !props.hidePrevNextWhenEnds || currentPageRef.value !== 1;
 
-  return !props.hidePrevNextWhenEnds || currentPageRef.value !== totalPages;
+  return (
+    !props.hidePrevNextWhenEnds || currentPageRef.value !== totalPages.value
+  );
 });
 const startingBreakPointButtonIfCondition = computed(() => {
   if (isRtl.value) {
-    return paginate.value.pages[0] < totalPages - 1;
+    return paginate.value.pages[0] < totalPages.value - 1;
   }
 
   return paginate.value.pages[0] >= 3;
@@ -359,11 +363,13 @@ const endingBreakPointButtonIfCondition = computed(() => {
     return paginate.value.pages[paginate.value.pages.length - 1] >= 3;
   }
 
-  return paginate.value.pages[paginate.value.pages.length - 1] < totalPages - 1;
+  return (
+    paginate.value.pages[paginate.value.pages.length - 1] < totalPages.value - 1
+  );
 });
 const firstButtonIfCondition = computed(() => {
   if (isRtl.value) {
-    return paginate.value.pages[0] < totalPages - 1;
+    return paginate.value.pages[0] < totalPages.value - 1;
   }
 
   return paginate.value.pages[0] >= 3;
@@ -373,7 +379,9 @@ const lastButtonIfCondition = computed(() => {
     return paginate.value.pages[paginate.value.pages.length - 1] >= 3;
   }
 
-  return paginate.value.pages[paginate.value.pages.length - 1] < totalPages - 1;
+  return (
+    paginate.value.pages[paginate.value.pages.length - 1] < totalPages.value - 1
+  );
 });
 
 // --------------------------- //
