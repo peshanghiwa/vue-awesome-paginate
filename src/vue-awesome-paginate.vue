@@ -252,6 +252,7 @@ const onClickHandler = (number: number) => {
   // if number is less than 1, do nothing
   if (number < 1) return;
 
+  // if pagination is disabled, do nothing
   if (props.disablePagination) return;
 
   currentPageRef.value = number;
