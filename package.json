@@ -19,6 +19,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
+    "test": "vitest",
     "preview": "vite preview"
   },
   "repository": {
@@ -41,9 +42,12 @@
     "@rollup/plugin-typescript": "^8.3.3",
     "@types/node": "^18.0.0",
     "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/test-utils": "^2.0.2",
+    "happy-dom": "^6.0.4",
     "tslib": "^2.4.0",
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
+    "vitest": "^0.18.1",
     "vue-tsc": "^0.34.17"
   }
 }
