@@ -57,18 +57,18 @@ describe("Jump Buttons", () => {
     expect(wrapper.find(".backward-jump-button").exists()).toBeFalsy();
     expect(wrapper.find(".forward-jump-button").exists()).toBeFalsy();
   });
-});
 
-it("should not render the jump buttons when total-items / items-per-page is smaller than max-pages-shown", () => {
-  const wrapper = mount(VueAwesomePaginate, {
-    propsData: {
-      showJumpButtons: true,
-      totalItems: 50,
-      maxPagesShown: 5,
-      currentPage: 1,
-    },
+  it("should not render the jump buttons when total-items / items-per-page is smaller than max-pages-shown", () => {
+    const wrapper = mount(VueAwesomePaginate, {
+      propsData: {
+        showJumpButtons: true,
+        totalItems: 50,
+        maxPagesShown: 5,
+        currentPage: 1,
+      },
+    });
+    // when total-items / items-per-page is smaller than max-pages-shown, no jump buttons should be rendered
+    expect(wrapper.find(".backward-jump-button").exists()).toBeFalsy();
+    expect(wrapper.find(".forward-jump-button").exists()).toBeFalsy();
   });
-  // when total-items / items-per-page is smaller than max-pages-shown, no jump buttons should be rendered
-  expect(wrapper.find(".backward-jump-button").exists()).toBeFalsy();
-  expect(wrapper.find(".forward-jump-button").exists()).toBeFalsy();
 });
