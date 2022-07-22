@@ -38,6 +38,7 @@
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.3",
     "@types/node": "^18.0.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "tslib": "^2.4.0",
