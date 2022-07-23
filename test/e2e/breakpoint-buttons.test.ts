@@ -30,18 +30,7 @@ describe("First and Last Buttons", () => {
     expect(wrapper.find(".ending-breakpoint-button").exists()).toBeFalsy();
   });
 
-  it("should render both ending buttons only when pagination is at the middle", () => {
-    const wrapper = mount(VueAwesomePaginate, {
-      propsData: {
-        totalItems: 100,
-        currentPage: 5,
-      },
-    });
-    expect(wrapper.find(".starting-breakpoint-button").exists()).toBeTruthy();
-    expect(wrapper.find(".ending-breakpoint-button").exists()).toBeTruthy();
-  });
-
-  it("should render both ending buttons only when pagination is at the middle", () => {
+  it("should render both ending buttons when pagination is at the middle", () => {
     const wrapper = mount(VueAwesomePaginate, {
       propsData: {
         totalItems: 100,
