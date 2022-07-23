@@ -28,7 +28,6 @@ describe("Jump Buttons", () => {
         currentPage: 10,
       },
     });
-    // when current page is 10, only backward jump button should be rendered
     expect(wrapper.find(".backward-jump-button").exists()).toBeTruthy();
     expect(wrapper.find(".forward-jump-button").exists()).toBeFalsy();
   });
@@ -41,7 +40,6 @@ describe("Jump Buttons", () => {
         currentPage: 5,
       },
     });
-    // when current page is 5, both jump buttons should be rendered
     expect(wrapper.find(".backward-jump-button").exists()).toBeTruthy();
     expect(wrapper.find(".forward-jump-button").exists()).toBeTruthy();
   });
@@ -53,7 +51,6 @@ describe("Jump Buttons", () => {
         totalItems: 100,
       },
     });
-    // when showJumpButtons is false, no jump buttons should be rendered
     expect(wrapper.find(".backward-jump-button").exists()).toBeFalsy();
     expect(wrapper.find(".forward-jump-button").exists()).toBeFalsy();
   });
@@ -67,7 +64,6 @@ describe("Jump Buttons", () => {
         currentPage: 1,
       },
     });
-    // when total-items / items-per-page is smaller than max-pages-shown, no jump buttons should be rendered
     expect(wrapper.find(".backward-jump-button").exists()).toBeFalsy();
     expect(wrapper.find(".forward-jump-button").exists()).toBeFalsy();
   });
