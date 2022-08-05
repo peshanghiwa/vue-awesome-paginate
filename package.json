@@ -1,7 +1,7 @@
 {
   "name": "vue-awesome-paginate",
   "private": false,
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Modern Vue 3 Pagination Module",
   "main": "./dist/vue-awesome-paginate.umd.js",
   "module": "./dist/vue-awesome-paginate.es.js",
