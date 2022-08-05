@@ -5,7 +5,7 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 
-import VueAwesomePaginate from "../../src/vue-awesome-paginate.vue";
+import VueAwesomePaginate from "../src/vue-awesome-paginate.vue";
 
 describe("Jump Buttons", () => {
   it("should render the forward jump button only when page is 1", () => {

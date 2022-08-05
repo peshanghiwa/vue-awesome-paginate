@@ -5,7 +5,7 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 
-import VueAwesomePaginate from "../../src/vue-awesome-paginate.vue";
+import VueAwesomePaginate from "../src/vue-awesome-paginate.vue";
 
 describe("First and Last Buttons", () => {
   it("should render 5 number buttons by default when total items are more than or equal to 50", () => {
