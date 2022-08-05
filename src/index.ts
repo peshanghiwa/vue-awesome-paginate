@@ -1,3 +1,4 @@
+// This is where the package installs.
 import VueAwesomePaginate from "./vue-awesome-paginate.vue";
 import { App } from "vue";
 

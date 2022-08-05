@@ -7,7 +7,7 @@ import typescript from "@rollup/plugin-typescript";
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, "src/package.ts"),
+      entry: resolve(__dirname, "src/index.ts"),
       name: "vue-awesome-paginate",
       fileName: (format) => `vue-awesome-paginate.${format}.js`,
     },
