@@ -1,4 +1,4 @@
-# Awesome Vue Paginate
+# Vue Awesome Paginate
 
 #### _The Awesome Vue.js 3 Pagination Library_
 
