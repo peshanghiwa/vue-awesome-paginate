@@ -2,6 +2,8 @@
 
 #### _The Awesome Vue.js 3 Pagination Library_
 
+<img src="https://i.ibb.co/ng01xWg/vue-wesome-paginate.gif" alt="vue-wesome-paginate">
+
 [![peshanghiwa - vue-awesome-paginate](https://img.shields.io/static/v1?label=peshanghiwa&message=vue-awesome-paginate&color=yellow&logo=github)](https://github.com/peshanghiwa/vue-awesome-paginate "Go to GitHub repo")
 [![npm version](https://img.shields.io/npm/v/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![npm downloads](https://img.shields.io/npm/dm/vue-awesome-paginate.svg)](http://badge.fury.io/js/vue-awesome-paginate) [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/peshanghiwa/vue-awesome-paginate/blob/main/LICENSE)
 
@@ -501,10 +503,14 @@ All the class names have a default value.
 | disabledBreakPointButtonClass | Styles for this class will be applied for the breakpoint buttons when the whole pagination component is disbaled or the breakpoints are disabled | disabled-breakpoint-button |
 | backwardJumpButtonClass | Styles for this class will be applied for the backward jump button | backward-jump-button |
 | forwardJumpButtonClass | Styles for this class will be applied for the forward jump button | forward-jump-button |
-| disabledBackwardJumpButtonClass | Styles for this class will be applied for the backward jump button when pagination is disbaled | disabled-backward-jump-button |
-| disabledBackButtonClass | Styles for this class will be applied for the back button when pagination is disbaled | disabled-back-button |
-| disabledNextButtonClass | Styles for this class will be applied for the next button when pagination is disbaled | disabled-next-button |
-| disabledForwardJumpButtonClass | Styles for this class will be applied for the forward jump butto when pagination is disbaled | disabled-forward-jump-button |
+| firstButtonClass | Styles for this class will be applied for the the very first button that shows when first break point button appears | first-button |
+| lastButtonClass | Styles for this class will be applied for the the very last button that shows when last break point button appears | first-button |
+| disabledFirstButtonClass | Styles for this class will be applied for the first button when disabled | disabled-first-button |
+| disabledLastButtonClass | Styles for this class will be applied for the last button when disabled | disabled-last-button |
+| disabledBackwardJumpButtonClass | Styles for this class will be applied for the backward jump button when pagination is disabled | disabled-backward-jump-button |
+| disabledBackButtonClass | Styles for this class will be applied for the back button when pagination is disabled | disabled-back-button |
+| disabledNextButtonClass | Styles for this class will be applied for the next button when pagination is disabled | disabled-next-button |
+| disabledForwardJumpButtonClass | Styles for this class will be applied for the forward jump button when pagination is disabled | disabled-forward-jump-button |
 
 &nbsp;
 &nbsp;
@@ -514,7 +520,7 @@ All the class names have a default value.
 
 These slot names can be used for Vue Slots in order to inject custom html in to the target element
 | Slot Name | Target |
-| ------ | ------ |
+|----------|:-------------:|
 | prev-button | Prev Button |
 | next-button | Next Button |
 | backward-jump-button | Backward Jump Button |
