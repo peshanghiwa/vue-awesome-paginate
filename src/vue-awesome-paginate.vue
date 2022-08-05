@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, PropType, ref } from "vue";
 
 // -------------------- //
 // ---> Properties <--- //
@@ -47,7 +47,7 @@ const props = defineProps({
     },
   },
   dir: {
-    type: String,
+    type: String as PropType<"ltr" | "rtl">,
     default: "ltr",
     validator: (value: string) => {
       const message = 'dir attribute must be either "ltr" or "rtl".';
@@ -59,7 +59,7 @@ const props = defineProps({
     },
   },
   type: {
-    type: String,
+    type: String as PropType<"link" | "button">,
     default: "button",
     validator: (value: string) => {
       const validTypess = ["link", "button"];
@@ -78,7 +78,7 @@ const props = defineProps({
     default: () => {},
   },
   locale: {
-    type: String,
+    type: String as PropType<"en" | "ar" | "ir">,
     default: "en",
     validator: (value: string) => {
       const validLocales = ["en", "ar", "ir"];
