@@ -154,12 +154,10 @@ const props = defineProps({
     type: String,
     default: "next-button",
   },
-  // not included in the documentation yet
   firstButtonClass: {
     type: String,
     default: "first-button",
   },
-  // not included in the documentation yet
   lastButtonClass: {
     type: String,
     default: "last-button",
@@ -214,12 +212,10 @@ const props = defineProps({
     type: String,
     default: "disabled-back-button",
   },
-  // not included in the documentation yet
   disabledFirstButtonClass: {
     type: String,
     default: "disabled-first-button",
   },
-  // not included in the documentation yet
   disabledLastButtonClass: {
     type: String,
     default: "disabled-last-button",
