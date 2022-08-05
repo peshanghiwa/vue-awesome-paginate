@@ -659,7 +659,7 @@ ul {
   /* resetting default stylings for ul tag */
   padding-inline-start: 0;
   list-style-type: none;
-  display: flex;
+  display: inline-flex;
 }
 
 a {
