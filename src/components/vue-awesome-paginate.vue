@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, PropType, ref } from "vue";
+import type { PropType } from "vue";
+import { computed, ref } from "vue";
 
 // -------------------- //
 // ---> Properties <--- //
@@ -650,15 +651,15 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
   </ul>
 </template>
 
-<style scoped>
-ul {
+<style>
+ul#componentContainer {
   /* resetting default stylings for ul tag */
   padding-inline-start: 0;
   list-style-type: none;
   display: inline-flex;
 }
 
-a {
+ul#componentContainer a {
   /* resetting default stylings for a tag */
   text-decoration: none;
   display: flex;

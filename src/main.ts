@@ -1,4 +1,5 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import VueAwesomePaginatePlugin from "./VueAwesomePaginatePlugin";
 
-createApp(App).mount('#app')
+createApp(App).use(VueAwesomePaginatePlugin).mount("#app");

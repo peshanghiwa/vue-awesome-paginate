@@ -1,9 +1,11 @@
 // This is where the package installs.
-import VueAwesomePaginate from "./vue-awesome-paginate.vue";
-import { App } from "vue";
+import type { App } from "vue";
+import { VueAwesomePaginate } from "./components";
 
 export default {
   install: (app: App) => {
     app.component("VueAwesomePaginate", VueAwesomePaginate);
   },
 };
+
+export { VueAwesomePaginate };
