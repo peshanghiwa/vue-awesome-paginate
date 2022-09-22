@@ -260,8 +260,6 @@ const currentPageRef = ref(props.currentPage);
 // ---> Methods <--- //
 // ----------------- //
 const onClickHandler = (number: number) => {
-  console.log(number);
-
   // if number is equal to the current page, do nothing
   if (number === currentPageRef.value) return;
 
