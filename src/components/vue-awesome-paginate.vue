@@ -145,6 +145,18 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  showEndingButtons: {
+    type: Boolean,
+    default: false,
+  },
+  firstPageContent: {
+    type: String,
+    default: "First",
+  },
+  lastPageContent: {
+    type: String,
+    default: "Last",
+  },
 
   // Class props
   backButtonClass: {
@@ -174,6 +186,14 @@ const props = defineProps({
   endingBreakPointButtonClass: {
     type: String,
     default: "ending-breakpoint-button",
+  },
+  firstPageButtonClass: {
+    type: String,
+    default: "first-page-button",
+  },
+  lastPageButtonClass: {
+    type: String,
+    default: "last-page-button",
   },
 
   // use this selector above all the other selectors because of css specificity
@@ -240,6 +260,8 @@ const currentPageRef = ref(props.currentPage);
 // ---> Methods <--- //
 // ----------------- //
 const onClickHandler = (number: number) => {
+  console.log(number);
+
   // if number is equal to the current page, do nothing
   if (number === currentPageRef.value) return;
 
@@ -381,6 +403,14 @@ const lastButtonIfCondition = computed(() => {
     paginate.value.pages[paginate.value.pages.length - 1] < totalPages.value - 1
   );
 });
+const firstPageButtonIfCondition = computed(() => {
+  if (currentPageRef.value === 1) return false;
+  return true;
+});
+const lastPageButtonIfCondition = computed(() => {
+  if (currentPageRef.value === totalPages.value) return false;
+  return true;
+});
 
 // --------------------------- //
 // ---> Validations Check <--- //
@@ -409,6 +439,25 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
 <template>
   <!-- If the type prop is 'button' following template will render -->
   <ul id="componentContainer" :class="paginationContainerClass">
+    <!-- Go back to first page Button -->
+    <li v-if="showEndingButtons && firstPageButtonIfCondition">
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="navigationHandler(isRtl ? totalPages : 1)"
+        @click.prevent="onClickHandler(isRtl ? totalPages : 1)"
+        :class="[
+          firstPageContent,
+          paginateButtonsClass,
+          disablePagination ? disabledPaginateButtonsClass : '',
+        ]"
+        :disabled="disablePagination"
+      >
+        <slot name="first-page-button">
+          {{ firstPageContent }}
+        </slot>
+      </component>
+    </li>
+
     <!-- Backward Jump Button -->
     <li v-if="showJumpButtons && startingBreakPointButtonIfCondition">
       <component
@@ -645,6 +694,25 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
       >
         <slot name="forward-jump-button">
           {{ forwardJumpButtonContent }}
+        </slot>
+      </component>
+    </li>
+
+    <!-- Go forward to last page -->
+    <li v-if="showEndingButtons && lastPageButtonIfCondition">
+      <component
+        :is="type === 'button' ? 'button' : 'a'"
+        :href="navigationHandler(isRtl ? 1 : totalPages)"
+        @click.prevent="onClickHandler(isRtl ? 1 : totalPages)"
+        :class="[
+          lastPageButtonClass,
+          paginateButtonsClass,
+          disablePagination ? disabledPaginateButtonsClass : '',
+        ]"
+        :disabled="disablePagination"
+      >
+        <slot name="last-page-button">
+          {{ lastPageContent }}
         </slot>
       </component>
     </li>
