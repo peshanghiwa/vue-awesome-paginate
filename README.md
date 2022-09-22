@@ -245,7 +245,7 @@ You can hide/show Ending buttons to be able to navigate to first and last page o
 
 ##### Result of above snippet:
 
-<img src="https://ibb.co/bQXmn9w" width="500" />
+<img src="https://i.ibb.co/n6jmSJd/Screen-Shot-2022-09-22-at-2-59-32-PM.png" width="500" />
 &nbsp;
 &nbsp;
 &nbsp;
@@ -279,7 +279,7 @@ You can hide prev/next buttons in two ways
 
 ##### Result of above snippet:
 
-<img src="https://i.ibb.co/bQXmn9w/Screen-Shot-2022-09-22-at-2-59-32-PM.png" width="500" >
+<img src="https://i.ibb.co/WpYV2dq/Screen-Shot-2022-09-22-at-4-18-34-PM.png" width="500" >
 &nbsp;
 &nbsp;
 &nbsp;
