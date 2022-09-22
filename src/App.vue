@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import vueAwesomePaginate from "./components/vue-awesome-paginate.vue";
+
+const clickHandler = (page: number) => {
+  console.log(page);
+};
 </script>
 
 <template>
@@ -8,6 +12,7 @@ import vueAwesomePaginate from "./components/vue-awesome-paginate.vue";
     :current-page="1"
     :items-per-page="5"
     :max-pages-shown="5"
+    :on-click="clickHandler"
   />
 </template>
 
