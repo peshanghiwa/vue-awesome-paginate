@@ -195,7 +195,7 @@ Example: you can set items per single page, maximum pagination buttons to show a
 &nbsp;
 &nbsp;
 
-## Show/Hide or Enable/Disable breakpoint buttons
+## (Show/Hide) or (Enable/Disable) breakpoint buttons
 
 Breakpoint buttons are clickable and shown by default, if you click on them you will get a jump of max-pages-shown / 2 in the pagination
 
@@ -223,6 +223,30 @@ You can Disable/Enable or Hide/Show them through attributes
 />
 ```
 
+&nbsp;
+&nbsp;
+&nbsp;
+
+## Show Ending Buttons (First and Last Page Buttons)
+
+You can hide/show Ending buttons to be able to navigate to first and last page of the pagination component
+
+```html
+<!--  Hide the Prev/Next buttons permanently -->
+<vue-awesome-paginate
+  :total-items="50"
+  :current-page="1"
+  :items-per-page="5"
+  :max-pages-shown="5"
+  :show-ending-buttons="true"
+  :show-breakpoint-buttons="false"
+/>
+```
+
+##### Result of above snippet:
+
+<img src="https://ibb.co/bQXmn9w" width="500" />
+&nbsp;
 &nbsp;
 &nbsp;
 &nbsp;
@@ -255,7 +279,7 @@ You can hide prev/next buttons in two ways
 
 ##### Result of above snippet:
 
-<img src="https://i.ibb.co/8rshY8B/4.png" width="500" />
+<img src="https://i.ibb.co/bQXmn9w/Screen-Shot-2022-09-22-at-2-59-32-PM.png" width="500" >
 &nbsp;
 &nbsp;
 &nbsp;
@@ -463,6 +487,7 @@ Note that all the attributes in the table below can be written in both camel cas
 | totalItems | Total Number of items that you want to paginate | Number | | Required |
 | itemsPerPage | Total Number of items that you explicitly want to show per one page | Number | 10 | Must be greater than 0 |
 | currentPage | Current active page | Number | 1 | Must be greater than 0 |
+| showEndingButtons | Show First and Last page buttons on each endings of the pagination component | Boolean | false | |
 | maxPagesShown | Maximum pagination buttons (Number Buttons only) to be shown | Number | 5 | Must be greater than 0 |
 | dir | Driection of the component (RTL Support) | "ltr" \| "rtl" | "ltr" | Must be one of either options |
 | onClick | A function that runs when the user changes a page by clicking any of the elements of the component (Passing the new active page to the function as a parameter) | Function | ()=>{} | |
@@ -481,6 +506,8 @@ Note that all the attributes in the table below can be written in both camel cas
 | showJumpButtons | Show/Hide the jump buttons | Boolean | false | |
 | backwardJumpButtonContent | Content to be shown in the backward jump button | String \| Slot | "<<" | Must be either a string or a custom slot |
 | forwardJumpButtonContent | Content to be shown in the forward jump button | String \| Slot | ">>" | Must be either a string or a custom slot |
+| firstPageContent | Content to be shown in the first page button | String \| Slot | "First" | Must be either a string or a custom slot |
+| lastPageContent | Content to be shown in the last page button | String \| Slot | "Last" | Must be either a string or a custom slot |
 
 &nbsp;
 &nbsp;
@@ -496,6 +523,8 @@ All the class names have a default value.
 | disabledPaginateButtonsClass | A global class name, styles for this class will be applied for all of the buttons when disabled inside the component | disabled-paginate-buttons |
 | numberButtonsClass | Styles for this class will be applied for all the number buttons | number-buttons |
 | activePageClass | Styles for this class will be applied for the current active page button | active-page |
+| firstPageButtonClass | Styles for this class will be applied for the first page button | first-page-buton |
+| lastPageButtonClass | Styles for this class will be applied for the last page button | last-page-buton |
 | backButtonClass | Styles for this class will be applied for the back button | back-button |
 | nextButtonClass | Styles for this class will be applied for the next button | next-button |
 | startingBreakpointButtonClass | Styles for this class will be applied for the starting breakpoint button | starting-breakpoint-button |
