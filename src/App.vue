@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import vueAwesomePaginate from "./vue-awesome-paginate.vue";
+import vueAwesomePaginate from "./components/vue-awesome-paginate.vue";
 </script>
 
 <template>
