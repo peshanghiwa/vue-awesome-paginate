@@ -12,7 +12,7 @@
     "./dist/style.css": "./dist/style.css"
   },
   "types": "dist/VueAwesomePaginatePlugin.d.ts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Modern Vue 3 Pagination Module",
   "files": [
     "dist"
