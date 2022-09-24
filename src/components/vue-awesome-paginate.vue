@@ -387,18 +387,18 @@ const endingBreakPointButtonIfCondition = computed(() => {
 });
 const firstButtonIfCondition = computed(() => {
   if (isRtl.value) {
-    return paginate.value.pages[0] < totalPages.value - 1;
+    return paginate.value.pages[0] < totalPages.value;
   }
 
-  return paginate.value.pages[0] >= 3;
+  return paginate.value.pages[0] >= 2;
 });
 const lastButtonIfCondition = computed(() => {
   if (isRtl.value) {
-    return paginate.value.pages[paginate.value.pages.length - 1] >= 3;
+    return paginate.value.pages[paginate.value.pages.length - 1] >= 2;
   }
 
   return (
-    paginate.value.pages[paginate.value.pages.length - 1] < totalPages.value - 1
+    paginate.value.pages[paginate.value.pages.length - 1] < totalPages.value
   );
 });
 const firstPageButtonIfCondition = computed(() => {
