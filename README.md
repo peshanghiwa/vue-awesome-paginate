@@ -32,7 +32,7 @@ Vue Awesome Paginate is a modern and powerfull vue js pagination library with a 
   - [**_Component Attributes_**](#Component-Attributes)
   - [**_Class Name Attributes_**](#Class-Name-Attributes)
   - [**_Slot Names_**](#Slot-Names)
-- [**_Author_**](#authors-&&-Contributors)
+- [**_Author_**](#author)
 - [**_License_**](#license)
 
 &nbsp;
