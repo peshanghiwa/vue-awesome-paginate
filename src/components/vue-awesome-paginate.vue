@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { PropType } from "vue";
+import { toRef, type PropType } from "vue";
 import { computed, ref } from "vue";
 
 // -------------------- //
@@ -28,6 +28,18 @@ const props = defineProps({
     default: 1,
     validator: (value: number) => {
       const message = "currentPage attribute must be greater than 0.";
+      if (value <= 0) {
+        console.error(message);
+        throw new TypeError(message);
+      }
+      return true;
+    },
+  },
+  modelValue: {
+    type: Number,
+    required: true,
+    validator: (value: number) => {
+      const message = "v-model is required and must be greater than 0.";
       if (value <= 0) {
         console.error(message);
         throw new TypeError(message);
@@ -251,10 +263,25 @@ const props = defineProps({
   },
 });
 
+if (!props.modelValue && props.currentPage) {
+  throw new Error(
+    "currentPage/current-page is now deprecated, use v-model instead to set the current page."
+  );
+}
+
+if (!props.modelValue) {
+  throw new TypeError(`v-model is required for the paginate component.`);
+}
+
 // -------------- //
 // ---> Refs <--- //
 // -------------- //
-const currentPageRef = ref(props.currentPage);
+const currentPageRef = toRef(props, "modelValue");
+
+// ---------------- //
+// ---> Events <--- //
+// ---------------- //
+const emit = defineEmits(["update:modelValue"]);
 
 // ----------------- //
 // ---> Methods <--- //
@@ -272,7 +299,7 @@ const onClickHandler = (number: number) => {
   // if pagination is disabled, do nothing
   if (props.disablePagination) return;
 
-  currentPageRef.value = number;
+  emit("update:modelValue", number);
   props.onClick(number);
 };
 const NumbersLocale = (number: number) => {

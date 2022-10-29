@@ -102,21 +102,24 @@ export default defineNuxtPlugin((nuxtApp) => {
 A complete vue-awesome-paginate component example with some custom CSS customization would be like this:
 
 ```html
+<script setup lang="ts">
+  import { ref } from "vue";
+  const onClickHandler = (page: number) => {
+    console.log(page);
+  };
+
+  const currentPage = ref(1);
+</script>
+
 <template>
   <vue-awesome-paginate
     :total-items="50"
     :items-per-page="5"
     :max-pages-shown="5"
-    :current-page="1"
+    v-model="currentPage"
     :on-click="onClickHandler"
   />
 </template>
-
-<script setup lang="ts">
-  const onClickHandler = (page: number) => {
-    console.log(page);
-  };
-</script>
 
 <style>
   .pagination-container {
@@ -180,7 +183,7 @@ Example: you can set items per single page, maximum pagination buttons to show a
 ```html
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   :on-click="onClickHandler"
@@ -205,7 +208,7 @@ You can Disable/Enable or Hide/Show them through attributes
 <!-- Hide Breakpoint Buttons -->
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   :on-click="onClickHandler"
@@ -215,7 +218,7 @@ You can Disable/Enable or Hide/Show them through attributes
 <!--  Disable Breakpoint Buttons -->
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   :on-click="onClickHandler"
@@ -235,7 +238,7 @@ You can hide/show Ending buttons to be able to navigate to first and last page o
 <!--  Hide the Prev/Next buttons permanently -->
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   :show-ending-buttons="true"
@@ -259,7 +262,7 @@ You can hide prev/next buttons in two ways
 <!--  Hide the Prev/Next buttons permanently -->
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   :on-click="onClickHandler"
@@ -269,7 +272,7 @@ You can hide prev/next buttons in two ways
 <!--  Hide the Prev button only when pagination is at the beginning and hide next button only when pagination reaches the end -->
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   :on-click="onClickHandler"
@@ -294,7 +297,7 @@ You can change the content inside the prev/next buttons in two ways:
 ```html
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   :on-click="onClickHandler"
@@ -314,7 +317,7 @@ You can change the content inside the prev/next buttons in two ways:
 ```html
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   :on-click="onClickHandler"
@@ -358,7 +361,7 @@ Jump Buttons are extra layers on top of Prev/Next buttons, if you enable them th
 ```html
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   :show-breakpoint-buttons="false"
@@ -387,7 +390,7 @@ example:
 ```html
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   :on-click="onClickHandler"
@@ -410,7 +413,7 @@ There are complete supports for RTL and different localizations without using an
 ```html
 <vue-awesome-paginate
   :total-items="50"
-  :current-page="1"
+  v-model="currentPage"
   :items-per-page="5"
   :max-pages-shown="5"
   dir="rtl"
@@ -434,7 +437,7 @@ By default pagination buttons have the default html styles, you can customize ev
 <template>
   <vue-awesome-paginate
     :total-items="50"
-    :current-page="1"
+    v-model="currentPage"
     :items-per-page="5"
     :max-pages-shown="5"
     paginate-buttons-class="btn"
@@ -486,7 +489,7 @@ Note that all the attributes in the table below can be written in both camel cas
 | ------ | ------ | ------ | ------ | ------ |
 | totalItems | Total Number of items that you want to paginate | Number | | Required |
 | itemsPerPage | Total Number of items that you explicitly want to show per one page | Number | 10 | Must be greater than 0 |
-| currentPage | Current active page | Number | 1 | Must be greater than 0 |
+| v-model | Current active page | Number | 1 | Required and must be greater than 0 |
 | showEndingButtons | Show First and Last page buttons on each endings of the pagination component | Boolean | false | |
 | maxPagesShown | Maximum pagination buttons (Number Buttons only) to be shown | Number | 5 | Must be greater than 0 |
 | dir | Driection of the component (RTL Support) | "ltr" \| "rtl" | "ltr" | Must be one of either options |
