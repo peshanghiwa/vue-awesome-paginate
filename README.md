@@ -559,6 +559,8 @@ These slot names can be used for Vue Slots in order to inject custom html in to 
 | forward-jump-button | Forward Jump Button
 | starting-breakpoint-button | Starting Breakpoint Button |
 | ending-breakpoint-button | Ending Breakpoint Button |
+| first-page-button | First Page Button |
+| last-page-button | Last Page Button |
 
 ## Author
 
