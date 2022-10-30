@@ -473,7 +473,9 @@ By default pagination buttons have the default html styles, you can customize ev
 
 You don't necessarily need to set class names for the elements if you don't want to, you can just use their default class names that are available in the class names table in the API section.
 
-**Important Note:** Do not make parent component of vue-awesome-paginate style scoped!, it will cause the style to be scoped to the parent component itself and none of the styles will get applied to the vue-awesome-paginate component.
+**Important Note:** If the <style> tag of the parent component is scoped, you have to use the **::deep** combinator in order to apply the styles to the elements of the component.
+
+```html
 
 &nbsp;
 &nbsp;
@@ -489,7 +491,7 @@ Note that all the attributes in the table below can be written in both camel cas
 | ------ | ------ | ------ | ------ | ------ |
 | totalItems | Total Number of items that you want to paginate | Number | | Required |
 | itemsPerPage | Total Number of items that you explicitly want to show per one page | Number | 10 | Must be greater than 0 |
-| v-model | Current active page | Number | 1 | Required and must be greater than 0 |
+| v-model | Current active page | Number |  | Required and must be greater than 0 |
 | showEndingButtons | Show First and Last page buttons on each endings of the pagination component | Boolean | false | |
 | maxPagesShown | Maximum pagination buttons (Number Buttons only) to be shown | Number | 5 | Must be greater than 0 |
 | dir | Driection of the component (RTL Support) | "ltr" \| "rtl" | "ltr" | Must be one of either options |
@@ -559,6 +561,9 @@ These slot names can be used for Vue Slots in order to inject custom html in to 
 | forward-jump-button | Forward Jump Button
 | starting-breakpoint-button | Starting Breakpoint Button |
 | ending-breakpoint-button | Ending Breakpoint Button |
+| first-page-button | First Page Button |
+| last-page-button | Last Page Button |
+
 
 ## Author
 
