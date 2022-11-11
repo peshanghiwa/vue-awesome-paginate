@@ -1,0 +1,77 @@
+- 1.1.4
+  - Added changelog file to the repository
+- 1.1.3
+  - BREAKING: (current-page prop is replaced with v-model)
+  - added new slots to docs
+  - updated documentation
+- 1.1.2
+  - updated documentation
+- 1.1.0
+  - fixed typo in documentation
+  - updated tsc package version to 1.0.9
+  - fixed reactivity bug
+- 1.0.5
+  - fixed first and last button disappearing bug
+- 1.0.4
+  - added click handler to example
+  - updated component directory
+- fixed image issues in readme.markdown
+  - 1.0.3
+  - removed console.log
+  - added documentation for ending buttons
+  - added ending buttons
+  - new vite configurations
+  - new typescript configurations
+  - updated folder structure
+  - updated package dependecies
+- 1.0.23
+  - corrected name issue on markdown title
+- 1.0.22
+  - added new keywords
+- 1.0.2
+  - reverted back package.ts to indxe.ts
+  - removed comments
+  - added specific typings to some of the props
+  - updated readme
+- 1.0.1
+  - updated tests directory
+  - updated style for the component container
+  - number buttons e2e tests
+  - breakpoint buttons tests
+  - first and lat button test
+  - created testings for navigation buttons
+  - cleanup
+  - replaced js with ts for test file
+  - added e2e tests for jump buttons
+  - cleanup
+  - configured typescript declaration for build time
+- 1.0.0
+  - totalItems updating issue fixed
+- 0.0.11
+  - added classes for disabled buttons
+- 0.0.10
+  - added component disabling feature
+  - developer experience improvements
+  - Create .prettierrc
+- 0.0.9
+  - updated documentation for type attribute
+  - enabled link type attribute
+  - Update .gitignore
+- 0.0.8
+  - Update README.md
+- 0.0.7
+  - Update README.md
+- 0.0.6
+  - Update README.md
+  - Added Documentations
+  - commenting unused codes in production
+  - fixing naming convention issues
+  - breakpoint disabling bug fix
+  - code cleanup
+  - updated module configs
+  - MIT LICENSE
+- 0.0.4
+  - fixed types declaration issue
+- 0.0.1
+  - ts config updates
+  - initial commit
