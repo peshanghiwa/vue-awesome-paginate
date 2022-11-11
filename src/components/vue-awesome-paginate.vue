@@ -263,7 +263,7 @@ const props = defineProps({
   },
 });
 
-if (!props.modelValue && props.currentPage) {
+if (props.currentPage && !props.modelValue) {
   throw new Error(
     "currentPage/current-page is now deprecated, use v-model instead to set the current page."
   );
