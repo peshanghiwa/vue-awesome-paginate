@@ -1,5 +1,6 @@
 - 1.1.4
   - Added changelog file to the repository
+  - Fixed Bugs
 - 1.1.3
   - BREAKING: (current-page prop is replaced with v-model)
   - added new slots to docs
