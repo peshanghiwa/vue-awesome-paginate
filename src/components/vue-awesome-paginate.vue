@@ -471,7 +471,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
         :href="navigationHandler(isRtl ? totalPages : 1)"
         @click.prevent="onClickHandler(isRtl ? totalPages : 1)"
         :class="[
-          firstPageContent,
+          firstPageButtonClass,
           paginateButtonsClass,
           disablePagination ? disabledPaginateButtonsClass : '',
         ]"
