@@ -159,11 +159,11 @@ A complete vue-awesome-paginate component example with some custom CSS customiza
 
 ## Required Attributes
 
-Total required attributes to build a full pagination for your website is only one single attribute, the component will handle all the other functionalities and attributes by default
+Total required attributes to build a full pagination for your website is only two attributes, the component will handle all the other functionalities and attributes by default
 as simple as this example:
 
 ```html
-<vue-awesome-paginate :total-items="200" />
+<vue-awesome-paginate :total-items="200" v-model="currentPage" />
 ```
 
 ##### Result of above snippet:
