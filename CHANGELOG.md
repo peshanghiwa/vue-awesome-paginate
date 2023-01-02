@@ -1,3 +1,6 @@
+- 1.1.46
+  - Fixed breaking issue with the component build
+- 1.1.45 (This Version breaks DO NOT DOWNLOAD IT)
 - 1.1.4
   - Added changelog file to the repository
   - Fixed Bugs
