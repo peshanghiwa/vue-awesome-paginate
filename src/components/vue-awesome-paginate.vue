@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { toRef, type PropType } from "vue";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 
 // -------------------- //
 // ---> Properties <--- //
