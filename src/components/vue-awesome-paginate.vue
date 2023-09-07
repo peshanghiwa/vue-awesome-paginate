@@ -145,6 +145,10 @@ const props = defineProps({
     type: String,
     default: "#",
   },
+  pureLinkUrl: {
+    type: String,
+    default: "#",
+  },
   backwardJumpButtonContent: {
     type: String,
     default: "<<",
@@ -316,6 +320,10 @@ const NumbersLocale = (number: number) => {
 };
 const navigationHandler = (page: number) => {
   if (props.type !== "link") return "";
+  if(props.pureLinkUrl!="#"&&page==1)
+  {
+    return props.pureLinkUrl;
+  }
   return props.linkUrl.replace("[page]", page.toString());
 };
 
