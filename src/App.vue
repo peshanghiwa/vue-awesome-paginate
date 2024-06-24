@@ -15,7 +15,7 @@ const clickHandler = (page: number) => {
     v-model="currentPage"
     :items-per-page="5"
     :max-pages-shown="5"
-    :on-click="clickHandler"
+    @click="clickHandler"
   />
 </template>
 
