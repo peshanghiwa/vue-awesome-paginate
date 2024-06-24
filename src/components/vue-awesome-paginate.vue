@@ -281,7 +281,7 @@ const currentPageRef = toRef(props, "modelValue");
 // ---------------- //
 // ---> Events <--- //
 // ---------------- //
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "click"]);
 
 // ----------------- //
 // ---> Methods <--- //
@@ -300,6 +300,7 @@ const onClickHandler = (number: number) => {
   if (props.disablePagination) return;
 
   emit("update:modelValue", number);
+  emit("click", number);
   props.onClick(number);
 };
 const NumbersLocale = (number: number) => {
