@@ -51,7 +51,7 @@
     "vue.js pagination"
   ],
   "dependencies": {
-    "vue": "^3.2.25"
+    "vue": "^3.4.30"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
