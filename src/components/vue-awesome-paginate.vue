@@ -263,12 +263,6 @@ const props = defineProps({
   },
 });
 
-if (props.onClick) {
-  console.warn(
-    "onClick prop will be deprecated in the next release, please use @click event-handler to handle click events."
-  );
-}
-
 if (props.currentPage && !props.modelValue) {
   throw new Error(
     "currentPage/current-page is now deprecated, use v-model instead to set the current page."
@@ -307,8 +301,8 @@ const onClickHandler = (number: number) => {
 
   emit("update:modelValue", number);
   emit("click", number);
-  props.onClick(number);
 };
+
 const NumbersLocale = (number: number) => {
   switch (props.locale) {
     case "en":
