@@ -1,3 +1,7 @@
+- 1.2
+  - Created @click event handler for the component
+  - Added warning to replace onClick prop with @click event handler
+  - Added warning that onClick prop will be deprecated in the next release
 - 1.1.46
   - Fixed breaking issue with the component build
 - 1.1.45 (This Version breaks DO NOT DOWNLOAD IT)
